@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace WineTasting.Data
 {
+    public enum WineType {[Display(Name = "Cabernet Sauvignon")] CabernetSauvignon, Zinfandel, Merlot, [Display(Name = "Pinot Noir")] PinotNoir, Malbec }
 
     public class Tasting
-    {
-        public enum WineType {[Display(Name = "Cabernet Sauvignon")] CabernetSauvignon, Zinfandel, Merlot, [Display(Name = "Pinot Noir")] PinotNoir, Malbec }
-
+    {       
         [Key]
         public int TastingId { get; set; }
 
