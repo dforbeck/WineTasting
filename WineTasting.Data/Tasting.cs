@@ -7,22 +7,26 @@ using System.Threading.Tasks;
 
 namespace WineTasting.Data
 {
-    
+
     public class Tasting
     {
-        public enum WineType { [Display(Name ="Cabernet Sauvignon")] CabernetSauvignon, Zinfandel, Merlot, [Display(Name="Pinot Noir")]PinotNoir, Malbec }
+        public enum WineType {[Display(Name = "Cabernet Sauvignon")] CabernetSauvignon, Zinfandel, Merlot, [Display(Name = "Pinot Noir")] PinotNoir, Malbec }
 
         [Key]
         public int TastingId { get; set; }
 
         [Required]
         public Guid OwnerId { get; set; }
-        
-        [Required]
-        public string LocationSpecs { get; set; }
 
         [Required]
-        [Display(Name ="Wine Type")]
+        [Display(Name = "Event Title")]
+        public string Title { get; set; }
+
+        [Required]
+        public string Host {get; set;}
+
+        [Required]
+        [Display(Name ="Tasting Wine Type")]
         public WineType TypeOfWine { get; set; }
 
         [Required]
