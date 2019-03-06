@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasting\TastingCreate.cs" />
     <Compile Include="Tasting\TastingListItem.cs" />
   </ItemGroup>
   <ItemGroup>

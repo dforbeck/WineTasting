@@ -8,19 +8,20 @@ using WineTasting.Data;
 
 namespace WineTasting.Models.Tasting
 {
-    public class TastingListItem
+    public class TastingCreate
     {
-        [Display(Name = "Tasting ID")]
-        public int TastingId { get; set; }
-
+        [Required]
         [Display(Name = "Tasting Date")]
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         //public DateTime TastingDate { get; set; }
+        [DataType(DataType.Date)]
         public DateTimeOffset TastingDate { get; set; }
 
+        [Required]
         [Display(Name = "Event Title")]
         public string Title { get; set; }
 
+        [Required]
         public string Host { get; set; }
 
         [Display(Name = "Type of Wine")]

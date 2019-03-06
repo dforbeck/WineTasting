@@ -14,7 +14,14 @@ namespace WineTasting.WebMVC.Controllers
         public ActionResult Index()
         {
             var model = new TastingListItem[0];
+            return View(model);
+        }
+
+        //Create the Tasting
+        public ActionResult Create()
+        {
             return View();
         }
+
     }
 }

@@ -18,19 +18,17 @@ namespace WineTasting.Data
         public Guid OwnerId { get; set; }
 
         [Required]
-        [Display(Name = "Event Title")]
         public string Title { get; set; }
 
         [Required]
         public string Host {get; set;}
 
         [Required]
-        [Display(Name ="Tasting Wine Type")]
         public WineType TypeOfWine { get; set; }
 
         [Required]
-        [Display(Name ="Tasting Date")]
-        public DateTime TastingDate { get; set; }
+        //public DateTime TastingDate { get; set; }
+        public DateTimeOffset TastingDate { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc
