@@ -47,6 +47,14 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateTastingService();
+            var model = svc.GetTastingbyId(id);
+
+            return View(model);
+        }
+
         private TastingService CreateTastingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
