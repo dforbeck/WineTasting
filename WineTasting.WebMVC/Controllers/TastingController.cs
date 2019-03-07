@@ -95,6 +95,29 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateTastingService();
+            var model = svc.GetTastingById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateTastingService();
+
+            service.DeleteTasting(id);
+
+            TempData["SaveResult"] = "Your note was deleted";
+
+            return RedirectToAction("Index");
+        }
+
         private TastingService CreateTastingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

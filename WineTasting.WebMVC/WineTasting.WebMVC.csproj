@@ -245,6 +245,7 @@
     <Content Include="Views\Tasting\Create.cshtml" />
     <Content Include="Views\Tasting\Details.cshtml" />
     <Content Include="Views\Tasting\Edit.cshtml" />
+    <Content Include="Views\Tasting\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

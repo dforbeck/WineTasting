@@ -95,5 +95,18 @@ namespace WineTasting.Services
                 return ctx.SaveChanges() == 1;
             }        
         }
+
+        public bool DeleteTasting(int tastingId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Tastings
+                    .Single(e => e.TastingId == tastingId && e.OwnerId == _userId);
+
+                ctx.Tastings.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
