@@ -78,6 +78,26 @@ namespace WineTasting.Services
 
             }
         }
+
+        public bool UpdateTasting(TastingEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Tastings
+                    .Single(e => e.TastingId == model.TastingId && e.OwnerId == _userId);
+
+                entity.TastingDate = model.TastingDate;
+                entity.Title = model.Title;
+                entity.Host = model.Host;
+                entity.TypeOfWine = model.TypeOfWine;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+
+
+        }
+        }
     }
 
 
