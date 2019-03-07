@@ -57,15 +57,15 @@ namespace WineTasting.WebMVC.Controllers
 
         public ActionResult Edit (int id)
         {
-            var sercvice = CreateTastingService();
-            var detail = Services.GetTastingById(id);
+            var service = CreateTastingService();
+            var detail = service.GetTastingById(id);
             var model = new TastingEdit
             {
                 TastingId = detail.TastingId,
                 TastingDate = detail.TastingDate,
                 Title = detail.Title,
                 Host = detail.Host,
-                TypeOfWine = detail.TypeofWine
+                TypeOfWine = detail.TypeOfWine
 
             };
             return View(model);
