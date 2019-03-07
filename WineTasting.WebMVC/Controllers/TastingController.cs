@@ -50,7 +50,7 @@ namespace WineTasting.WebMVC.Controllers
         public ActionResult Details(int id)
         {
             var svc = CreateTastingService();
-            var model = svc.GetTastingbyId(id);
+            var model = svc.GetTastingById(id);
 
             return View(model);
         }
