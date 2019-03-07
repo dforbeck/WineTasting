@@ -93,12 +93,7 @@ namespace WineTasting.Services
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
-            }
-
-
-        }
+            }        
         }
     }
-
-
 }

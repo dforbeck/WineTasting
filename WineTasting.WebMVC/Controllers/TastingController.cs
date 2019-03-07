@@ -71,6 +71,30 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, TastingEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.TastingId != id)
+            {
+                ModelState.AddModelError("", "Id Mistmatch");
+                return View(model);
+            }
+
+            var service = CreateTastingService();
+
+            if (service.UpdateTasting(model))
+            {
+                TempData["SaveResult"] = "Your note was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your note could not be updated.");
+            return View(model);
+        }
+
         private TastingService CreateTastingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
