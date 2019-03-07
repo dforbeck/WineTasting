@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WineTasting.Models.Tasting;
+using WineTasting.Services;
 
 namespace WineTasting.WebMVC.Controllers
 {
@@ -13,7 +15,10 @@ namespace WineTasting.WebMVC.Controllers
         // GET: Tasting
         public ActionResult Index()
         {
-            var model = new TastingListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TastingService(userId);
+            var model = service.GetTastings();
+
             return View(model);
         }
 
@@ -27,12 +32,26 @@ namespace WineTasting.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TastingCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateTastingService();
+
+            if (service.CreateTasting(model))
+            {
+                TempData["SaveResult"] = "Your Tasting was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Tasting could not be created.");
+
             return View(model);
         }
 
+        private TastingService CreateTastingService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TastingService(userId);
+            return service;
+        }
     }
 }

@@ -49,6 +49,7 @@ namespace WineTasting.Services
                         TastingId = e.TastingId,
                         TastingDate = e.TastingDate,
                         Title = e.Title,
+                        Host = e.Host,
                         TypeOfWine = e.TypeOfWine
                     }
                     );
