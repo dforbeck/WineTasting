@@ -255,12 +255,12 @@
     <Content Include="Views\Tasting\Details.cshtml" />
     <Content Include="Views\Tasting\Edit.cshtml" />
     <Content Include="Views\Tasting\Delete.cshtml" />
+    <Content Include="Views\Wine\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Assets\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
-    <Folder Include="Views\Wine\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

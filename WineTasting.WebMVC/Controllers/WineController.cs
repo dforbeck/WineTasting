@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WineTasting.Models.Wine;
 
 namespace WineTasting.WebMVC.Controllers
 {
+    [Authorize]
     public class WineController : Controller
     {
         // GET: Wine
         public ActionResult Index()
         {
-            return View();
+            var model = new WineListItem[0];
+            return View(model);
         }
     }
 }

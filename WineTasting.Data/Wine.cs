@@ -34,7 +34,7 @@ namespace WineTasting.Data
         [Required]
         public int Year { get; set; }
 
-        [Display(Name = "Code for Blind Tasting")]
+        [Display(Name = "Blind Tasting Code")]
         public BlindTastingCode CodeForBlindTasting { get; set; }
 
         [Required]
