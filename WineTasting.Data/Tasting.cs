@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WineTasting.Data
 {
-    public enum WineType {[Display(Name = "Cabernet Sauvignon")] CabernetSauvignon, Zinfandel, Merlot, [Display(Name = "Pinot Noir")] PinotNoir, Malbec }
+    public enum WineType {[Display(Name = "Cabernet Sauvignon")] CabernetSauvignon, Zinfandel, Merlot, [Display(Name = "Pinot Noir")] PinotNoir, Malbec, Various }
 
     public class Tasting
     {       

@@ -63,9 +63,14 @@
     <Compile Include="Migrations\201903061930190_Changed datetime.Designer.cs">
       <DependentUpon>201903061930190_Changed datetime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903081652101_Added Wine Table.cs" />
+    <Compile Include="Migrations\201903081652101_Added Wine Table.Designer.cs">
+      <DependentUpon>201903081652101_Added Wine Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasting.cs" />
+    <Compile Include="Wine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -77,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903061930190_Changed datetime.resx">
       <DependentUpon>201903061930190_Changed datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903081652101_Added Wine Table.resx">
+      <DependentUpon>201903081652101_Added Wine Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
