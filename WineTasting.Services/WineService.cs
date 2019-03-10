@@ -57,5 +57,27 @@ namespace WineTasting.Services
                 return query.ToArray();
             }
         }
+
+        public WineDetail GetNotebyId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Wines
+                    .Single(e => e.WineId == wineId && e.OwnerId == _userId);
+                return new WineDetail
+                {
+                    WineId = entity.WineId,
+                    Brand = entity.Brand,
+                    SubBrand = entity.SubBrand,
+                    WineVarietal = entity.SubBrand,
+                    Region = entity.SubBrand,
+                    Year = entity.Year,
+                    CodeForBlindTasting = entity.CodeForBlindTasting,
+                    CreatedUtc = entity.CreatedUtc,
+                    ModifiedUtc = entity.ModfiedUtc
+                };
+
+            }
+        }
     }
 }
