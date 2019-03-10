@@ -59,6 +59,7 @@
     <Compile Include="Tasting\TastingDetail.cs" />
     <Compile Include="Tasting\TastingEdit.cs" />
     <Compile Include="Tasting\TastingListItem.cs" />
+    <Compile Include="Wine\WineCreate.cs" />
     <Compile Include="Wine\WineListItem.cs" />
   </ItemGroup>
   <ItemGroup>

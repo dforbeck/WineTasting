@@ -9,7 +9,7 @@ namespace WineTasting.Data
 {
     public enum Varietal {[Display(Name = "Cabernet Sauvignon")] CabernetSauvignon, Zinfandel, Merlot, [Display(Name = "Pinot Noir")] PinotNoir, Malbec, Syrah}
 
-    public enum BlindTastingCode {A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+    public enum BlindTastingCode {A,B,C,D,E,F,G,H,I,J,K,L,M}
 
     public class Wine
     {

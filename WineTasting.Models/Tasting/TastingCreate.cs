@@ -24,6 +24,7 @@ namespace WineTasting.Models.Tasting
         [Required]
         public string Host { get; set; }
 
+        [Required]
         [Display(Name = "Type of Wine")]
         public WineType TypeOfWine { get; set; }
 
