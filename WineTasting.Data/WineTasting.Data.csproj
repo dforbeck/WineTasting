@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201903081652101_Added Wine Table.Designer.cs">
       <DependentUpon>201903081652101_Added Wine Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903101459570_column out.cs" />
+    <Compile Include="Migrations\201903101459570_column out.Designer.cs">
+      <DependentUpon>201903101459570_column out.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasting.cs" />
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903081652101_Added Wine Table.resx">
       <DependentUpon>201903081652101_Added Wine Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903101459570_column out.resx">
+      <DependentUpon>201903101459570_column out.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

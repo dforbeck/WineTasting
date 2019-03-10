@@ -45,7 +45,7 @@ namespace WineTasting.Data
 
 
         public virtual Tasting Tasting { get; set; }
-        [Required]
-        public int TastingId { get; set; }      
+       
+        //public int TastingId { get; set; }      
     }
 }
