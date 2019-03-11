@@ -58,7 +58,7 @@ namespace WineTasting.Services
             }
         }
 
-        public WineDetail GetNotebyId(int id)
+        public WineDetail GetWineById(int wineId)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -69,15 +69,33 @@ namespace WineTasting.Services
                     WineId = entity.WineId,
                     Brand = entity.Brand,
                     SubBrand = entity.SubBrand,
-                    WineVarietal = entity.SubBrand,
+                    WineVarietal = entity.WineVarietal,
                     Region = entity.SubBrand,
                     Year = entity.Year,
                     CodeForBlindTasting = entity.CodeForBlindTasting,
                     CreatedUtc = entity.CreatedUtc,
-                    ModifiedUtc = entity.ModfiedUtc
+                    ModifiedUtc = entity.ModifiedUtc
                 };
 
             }
         }
+
+        public bool UpdateWine(WineEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Wines
+                    .Single(e => e.WineId == model.WineId && e.OwnerId == _userId);
+
+                entity.Brand = model.Brand;
+                entity.SubBrand = model.SubBrand;
+                entity.WineVarietal = model.WineVarietal;
+                entity.Region = model.Region;
+                entity.CodeForBlindTasting = model.CodeForBlindTasting;
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }        
     }
 }

@@ -257,6 +257,7 @@
     <Content Include="Views\Tasting\Delete.cshtml" />
     <Content Include="Views\Wine\Index.cshtml" />
     <Content Include="Views\Wine\Create.cshtml" />
+    <Content Include="Views\Wine\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

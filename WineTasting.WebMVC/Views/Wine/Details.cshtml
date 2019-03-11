@@ -1,0 +1,66 @@
+﻿@model WineTasting.Models.Wine.WineDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WineDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubBrand)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.WineVarietal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WineVarietal)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeForBlindTasting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeForBlindTasting)
+        </dd>   
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WineId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
