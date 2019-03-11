@@ -70,7 +70,7 @@ namespace WineTasting.Services
                     Brand = entity.Brand,
                     SubBrand = entity.SubBrand,
                     WineVarietal = entity.WineVarietal,
-                    Region = entity.SubBrand,
+                    Region = entity.Region,
                     Year = entity.Year,
                     CodeForBlindTasting = entity.CodeForBlindTasting,
                     CreatedUtc = entity.CreatedUtc,
@@ -91,11 +91,26 @@ namespace WineTasting.Services
                 entity.SubBrand = model.SubBrand;
                 entity.WineVarietal = model.WineVarietal;
                 entity.Region = model.Region;
+                entity.Year = model.Year;
                 entity.CodeForBlindTasting = model.CodeForBlindTasting;
 
                 return ctx.SaveChanges() == 1;
 
             }
-        }        
+        }
+
+        public bool DeleteWine(int wineId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Wines
+                    .Single(e => e.WineId == wineId && e.OwnerId == _userId);
+
+                ctx.Wines.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

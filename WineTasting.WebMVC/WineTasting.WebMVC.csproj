@@ -258,6 +258,8 @@
     <Content Include="Views\Wine\Index.cshtml" />
     <Content Include="Views\Wine\Create.cshtml" />
     <Content Include="Views\Wine\Details.cshtml" />
+    <Content Include="Views\Wine\Edit.cshtml" />
+    <Content Include="Views\Wine\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
