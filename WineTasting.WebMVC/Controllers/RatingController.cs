@@ -46,11 +46,34 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateRatingService();
+            var model = svc.GetRatingById(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateRatingService();
+            var detail = service.GetRatingById(id);
+            var model = new RatingEdit
+            {
+                RatingId = detail.RatingId,
+                GuestRating = detail.GuestRating,
+                Comments = detail.Comments
+            };
+            return View(model);
+        }
+
+
+
         private RatingService CreateRatingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new RatingService(userId);
             return service;
-        }
+        }        
     }
 }

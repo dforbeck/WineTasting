@@ -50,5 +50,38 @@ namespace WineTasting.Services
                 return query.ToArray();
             }
         }
+
+        public RatingDetail GetRatingById(int ratingId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ratings
+                    .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
+                return new RatingDetail
+                {
+                    RatingId = entity.RatingId,
+                    GuestRating = entity.GuestRating,
+                    Comments = entity.Comments,
+                    CreatedUtc = entity.CreatedUtc,
+                    ModifiedUtc = entity.ModifiedUtc
+                };
+            }
+        }
+
+        public bool UpdateRating(RatingEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ratings
+                    .Single(e => e.RatingId == model.RatingId && e.OwnerId == _userId);
+
+                entity.GuestRating = model.GuestRating;
+                entity.Comments = model.Comments;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;                 
+            }
+
+        }
     }
 }

@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace WineTasting.Models.Rating
 {
-    public class RatingCreate
+    public class RatingDetail
     {
-        [Required]
-        public double GuestRating { get; set; }
+        public int RatingId { get; set; }
 
-        [MaxLength(8000)]
+        [Display(Name = "My Point Rating")]
+        public double GuestRating { get; set; }
         public string Comments { get; set; }
+
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
         public override string ToString()
         {
             return base.ToString();
         }
-
-
     }
 }
