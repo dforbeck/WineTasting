@@ -33,5 +33,22 @@ namespace WineTasting.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public IEnumerable<RatingListItem> GetRatings()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Ratings
+                    .Where(e => e.OwnerId == _userId)
+                    .Select(e => new RatingListItem
+                    {
+                        RatingId = e.RatingId,
+                        GuestRating = e.GuestRating,
+                        Comments = e.Comments
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
     }
 }
