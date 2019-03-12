@@ -71,8 +71,17 @@
     <Compile Include="Migrations\201903101459570_column out.Designer.cs">
       <DependentUpon>201903101459570_column out.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903111848581_Rating.cs" />
+    <Compile Include="Migrations\201903111848581_Rating.Designer.cs">
+      <DependentUpon>201903111848581_Rating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903121501535_ratings.cs" />
+    <Compile Include="Migrations\201903121501535_ratings.Designer.cs">
+      <DependentUpon>201903121501535_ratings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rating.cs" />
     <Compile Include="Tasting.cs" />
     <Compile Include="Wine.cs" />
   </ItemGroup>
@@ -92,6 +101,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903101459570_column out.resx">
       <DependentUpon>201903101459570_column out.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903111848581_Rating.resx">
+      <DependentUpon>201903111848581_Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903121501535_ratings.resx">
+      <DependentUpon>201903121501535_ratings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

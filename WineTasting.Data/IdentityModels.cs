@@ -36,6 +36,8 @@ namespace WineTasting.Data
 
         public DbSet<Wine> Wines { get; set; }
 
+        public DbSet<Rating> Ratings { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

@@ -41,11 +41,12 @@ namespace WineTasting.Data
         public DateTimeOffset CreatedUtc
         { get; set; }
 
+        public double OverallRating { get; set; }
+
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-
         public virtual Tasting Tasting { get; set; }
-       
-        //public int TastingId { get; set; }      
+                 
     }
+
 }
