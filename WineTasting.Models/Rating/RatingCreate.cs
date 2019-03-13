@@ -15,6 +15,9 @@ namespace WineTasting.Models.Rating
         [MaxLength(8000)]
         public string Comments { get; set; }
 
+        public int WineId { get; set; }
+        public int TastingId { get; set; }
+
         public override string ToString()
         {
             return base.ToString();

@@ -33,9 +33,7 @@ namespace WineTasting.Data
         }
 
         public DbSet<Tasting> Tastings { get; set; }
-
         public DbSet<Wine> Wines { get; set; }
-
         public DbSet<Rating> Ratings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -63,7 +61,7 @@ namespace WineTasting.Data
     {
         public IdentityUserRoleConfiguration()
         {
-            HasKey(iur => iur.RoleId);
+            HasKey(iur => iur.UserId);
         }
 
     }

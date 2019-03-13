@@ -11,6 +11,9 @@ namespace WineTasting.Models.Rating
     {            
         public int RatingId { get; set; }
         public Guid OwnerId { get; set; }
+        public int WineId { get; set; }
+        public int TastingId { get; set; }
+
 
         [Display(Name ="My Point Rating")]
         public double GuestRating { get; set; }

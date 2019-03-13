@@ -79,6 +79,10 @@
     <Compile Include="Migrations\201903121501535_ratings.Designer.cs">
       <DependentUpon>201903121501535_ratings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903131542123_Addedforeigkeys.cs" />
+    <Compile Include="Migrations\201903131542123_Addedforeigkeys.Designer.cs">
+      <DependentUpon>201903131542123_Addedforeigkeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903121501535_ratings.resx">
       <DependentUpon>201903121501535_ratings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903131542123_Addedforeigkeys.resx">
+      <DependentUpon>201903131542123_Addedforeigkeys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

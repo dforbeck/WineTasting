@@ -9,6 +9,10 @@ namespace WineTasting.Models.Rating
     public class RatingEdit
     {
         public int RatingId { get; set; }
+        public int WineId { get; set; }
+        public int TastingId { get; set; }
+
+
         public double GuestRating { get; set; }
 
         public string Comments { get; set; }
