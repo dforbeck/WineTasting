@@ -67,7 +67,52 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, RatingEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
 
+            if(model.RatingId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateRatingService();
+
+            if (service.UpdateRating(model))
+            {
+                TempData["SaveResult"] = "Your Rating was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Rating could not be updated.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateRatingService();
+            var model = svc.GetRatingById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateRatingService();
+
+            service.DeleteRating(id);
+
+            TempData["SaveResult"] = "Your Rating was deleted";
+
+            return RedirectToAction("Index");
+        }
 
         private RatingService CreateRatingService()
         {

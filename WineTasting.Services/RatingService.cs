@@ -83,5 +83,19 @@ namespace WineTasting.Services
             }
 
         }
+
+        public bool DeleteRating(int ratingId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ratings
+                    .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
+
+                ctx.Ratings.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
     }
 }
