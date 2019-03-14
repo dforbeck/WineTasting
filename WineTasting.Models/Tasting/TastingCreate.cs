@@ -12,8 +12,6 @@ namespace WineTasting.Models.Tasting
     {
         [Required]
         [Display(Name = "Tasting Date")]
-        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        //public DateTime TastingDate { get; set; }
         [DataType(DataType.Date)]
         public DateTimeOffset TastingDate { get; set; }
 
@@ -28,9 +26,5 @@ namespace WineTasting.Models.Tasting
         [Display(Name = "Type of Wine")]
         public WineType TypeOfWine { get; set; }
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

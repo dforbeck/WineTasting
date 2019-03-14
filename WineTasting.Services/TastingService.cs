@@ -25,7 +25,6 @@ namespace WineTasting.Services
                 TastingDate = model.TastingDate,
                 Title = model.Title,
                 Host = model.Host,
-                TypeOfWine = model.TypeOfWine,
                 CreatedUtc = DateTimeOffset.Now
             };
 
@@ -50,7 +49,6 @@ namespace WineTasting.Services
                         TastingDate = e.TastingDate,
                         Title = e.Title,
                         Host = e.Host,
-                        TypeOfWine = e.TypeOfWine
                     }
                     );
                 return query.ToArray();
@@ -70,7 +68,6 @@ namespace WineTasting.Services
                     TastingDate = entity.TastingDate,
                     Title = entity.Title,
                     Host = entity.Host,
-                    TypeOfWine = entity.TypeOfWine,
                     CreatedUtc = entity.CreatedUtc, 
                     ModifiedUtc = entity.ModifiedUtc
                 };
@@ -89,7 +86,6 @@ namespace WineTasting.Services
                 entity.TastingDate = model.TastingDate;
                 entity.Title = model.Title;
                 entity.Host = model.Host;
-                entity.TypeOfWine = model.TypeOfWine;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

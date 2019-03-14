@@ -7,13 +7,13 @@ namespace WineTasting.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Rating : IMigrationMetadata
+    public sealed partial class changedratingtable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Rating));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changedratingtable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903111848581_Rating"; }
+            get { return "201903142006380_changedratingtable"; }
         }
         
         string IMigrationMetadata.Source

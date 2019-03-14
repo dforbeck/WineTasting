@@ -16,7 +16,6 @@ namespace WineTasting.Models.Tasting
         [Display(Name = "Tasting Date")]
         [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-        //public DateTime TastingDate { get; set; }
         public DateTimeOffset TastingDate { get; set; }
 
         [Display(Name = "Event Title")]

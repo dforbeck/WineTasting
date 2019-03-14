@@ -10,7 +10,6 @@ namespace WineTasting.Models.Rating
     public class RatingListItem
     {            
         public int RatingId { get; set; }
-        public Guid OwnerId { get; set; }
         public int WineId { get; set; }
         public int TastingId { get; set; }
 

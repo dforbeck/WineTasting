@@ -55,33 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\201903060313307_InitialCreate.cs" />
-    <Compile Include="Migrations\201903060313307_InitialCreate.Designer.cs">
-      <DependentUpon>201903060313307_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201903142006380_changedratingtable.cs" />
+    <Compile Include="Migrations\201903142006380_changedratingtable.Designer.cs">
+      <DependentUpon>201903142006380_changedratingtable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903061930190_Changed datetime.cs" />
-    <Compile Include="Migrations\201903061930190_Changed datetime.Designer.cs">
-      <DependentUpon>201903061930190_Changed datetime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903081652101_Added Wine Table.cs" />
-    <Compile Include="Migrations\201903081652101_Added Wine Table.Designer.cs">
-      <DependentUpon>201903081652101_Added Wine Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903101459570_column out.cs" />
-    <Compile Include="Migrations\201903101459570_column out.Designer.cs">
-      <DependentUpon>201903101459570_column out.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903111848581_Rating.cs" />
-    <Compile Include="Migrations\201903111848581_Rating.Designer.cs">
-      <DependentUpon>201903111848581_Rating.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903121501535_ratings.cs" />
-    <Compile Include="Migrations\201903121501535_ratings.Designer.cs">
-      <DependentUpon>201903121501535_ratings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903131542123_Addedforeigkeys.cs" />
-    <Compile Include="Migrations\201903131542123_Addedforeigkeys.Designer.cs">
-      <DependentUpon>201903131542123_Addedforeigkeys.cs</DependentUpon>
+    <Compile Include="Migrations\201903142031245_deletedwinedate.cs" />
+    <Compile Include="Migrations\201903142031245_deletedwinedate.Designer.cs">
+      <DependentUpon>201903142031245_deletedwinedate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,26 +74,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903060313307_InitialCreate.resx">
-      <DependentUpon>201903060313307_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903142006380_changedratingtable.resx">
+      <DependentUpon>201903142006380_changedratingtable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903061930190_Changed datetime.resx">
-      <DependentUpon>201903061930190_Changed datetime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903081652101_Added Wine Table.resx">
-      <DependentUpon>201903081652101_Added Wine Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903101459570_column out.resx">
-      <DependentUpon>201903101459570_column out.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903111848581_Rating.resx">
-      <DependentUpon>201903111848581_Rating.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903121501535_ratings.resx">
-      <DependentUpon>201903121501535_ratings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903131542123_Addedforeigkeys.resx">
-      <DependentUpon>201903131542123_Addedforeigkeys.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903142031245_deletedwinedate.resx">
+      <DependentUpon>201903142031245_deletedwinedate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

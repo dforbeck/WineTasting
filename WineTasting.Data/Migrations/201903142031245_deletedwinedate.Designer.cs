@@ -7,13 +7,13 @@ namespace WineTasting.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Addedforeigkeys : IMigrationMetadata
+    public sealed partial class deletedwinedate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Addedforeigkeys));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(deletedwinedate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903131542123_Addedforeigkeys"; }
+            get { return "201903142031245_deletedwinedate"; }
         }
         
         string IMigrationMetadata.Source

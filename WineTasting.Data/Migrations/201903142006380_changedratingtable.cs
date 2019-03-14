@@ -3,10 +3,62 @@ namespace WineTasting.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class changedratingtable : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Rating",
+                c => new
+                    {
+                        RatingId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        TastingId = c.Int(nullable: false),
+                        WineId = c.Int(nullable: false),
+                        GuestRating = c.Double(nullable: false),
+                        Comments = c.String(),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                    })
+                .PrimaryKey(t => t.RatingId)
+                .ForeignKey("dbo.Tasting", t => t.TastingId, cascadeDelete: true)
+                .ForeignKey("dbo.Wine", t => t.WineId, cascadeDelete: true)
+                .Index(t => t.TastingId)
+                .Index(t => t.WineId);
+            
+            CreateTable(
+                "dbo.Tasting",
+                c => new
+                    {
+                        TastingId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        Title = c.String(nullable: false),
+                        Host = c.String(nullable: false),
+                        TastingDate = c.DateTimeOffset(nullable: false, precision: 7),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                    })
+                .PrimaryKey(t => t.TastingId);
+            
+            CreateTable(
+                "dbo.Wine",
+                c => new
+                    {
+                        WineId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        TastingDate = c.DateTimeOffset(nullable: false, precision: 7),
+                        Brand = c.String(nullable: false),
+                        SubBrand = c.String(),
+                        WineVarietal = c.Int(nullable: false),
+                        Region = c.String(nullable: false),
+                        Year = c.Int(nullable: false),
+                        CodeForBlindTasting = c.Int(nullable: false),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        OverallRating = c.Double(nullable: false),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                    })
+                .PrimaryKey(t => t.WineId);
+            
             CreateTable(
                 "dbo.IdentityRole",
                 c => new
@@ -20,31 +72,16 @@ namespace WineTasting.Data.Migrations
                 "dbo.IdentityUserRole",
                 c => new
                     {
-                        RoleId = c.String(nullable: false, maxLength: 128),
-                        UserId = c.String(),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(),
                         IdentityRole_Id = c.String(maxLength: 128),
                         ApplicationUser_Id = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.RoleId)
+                .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.IdentityRole", t => t.IdentityRole_Id)
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id)
                 .Index(t => t.ApplicationUser_Id);
-            
-            CreateTable(
-                "dbo.Tasting",
-                c => new
-                    {
-                        TastingId = c.Int(nullable: false, identity: true),
-                        OwnerId = c.Guid(nullable: false),
-                        Title = c.String(nullable: false),
-                        Host = c.String(nullable: false),
-                        TypeOfWine = c.Int(nullable: false),
-                        TastingDate = c.DateTime(nullable: false),
-                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(precision: 7),
-                    })
-                .PrimaryKey(t => t.TastingId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -100,16 +137,22 @@ namespace WineTasting.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.Rating", "WineId", "dbo.Wine");
+            DropForeignKey("dbo.Rating", "TastingId", "dbo.Tasting");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Rating", new[] { "WineId" });
+            DropIndex("dbo.Rating", new[] { "TastingId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
-            DropTable("dbo.Tasting");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Wine");
+            DropTable("dbo.Tasting");
+            DropTable("dbo.Rating");
         }
     }
 }

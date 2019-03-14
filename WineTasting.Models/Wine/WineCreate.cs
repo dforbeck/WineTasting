@@ -10,7 +10,6 @@ namespace WineTasting.Models.Wine
 {
     public class WineCreate
     {
-
         [Required]
         public string Brand { get; set; }
 
@@ -18,7 +17,7 @@ namespace WineTasting.Models.Wine
 
         [Required]
         [Display(Name = "Wine Varietal")]
-        public Varietal WineVarietal { get; set; }
+        public WineType WineVarietal { get; set; }
 
         [Required]
         public string Region { get; set; }
@@ -29,10 +28,5 @@ namespace WineTasting.Models.Wine
         [Required]
         [Display(Name = "Blind Tasting Code")]
         public BlindTastingCode CodeForBlindTasting { get; set; }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

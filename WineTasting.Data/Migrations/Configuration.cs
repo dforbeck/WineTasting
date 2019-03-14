@@ -10,7 +10,6 @@ namespace WineTasting.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "WineTasting.Data.ApplicationDbContext";
         }
 
         protected override void Seed(WineTasting.Data.ApplicationDbContext context)

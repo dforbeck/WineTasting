@@ -35,9 +35,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Host)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TypeOfWine)
-        </th>
         <th></th>
     </tr>
 
@@ -55,9 +52,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Host)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TypeOfWine)
-        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TastingId }) |
             @Html.ActionLink("Details", "Details", new { id=item.TastingId }) |

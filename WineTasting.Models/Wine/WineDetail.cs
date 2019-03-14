@@ -11,11 +11,17 @@ namespace WineTasting.Models.Wine
     public class WineDetail
     {
         public int WineId { get; set; }
+        public Guid OwnerId { get; set; }
+        
+        [Display(Name = "Tasting Date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTimeOffset TastingDate { get; set; }
+
         public string Brand { get; set; }
         public string SubBrand { get; set; }
 
         [Display(Name = "Wine Varietal")]
-        public Varietal WineVarietal { get; set; }
+        public WineType WineVarietal { get; set; }
 
         public string Region { get; set; }
         public int Year { get; set; }
@@ -27,11 +33,5 @@ namespace WineTasting.Models.Wine
         { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-
     }
 }
