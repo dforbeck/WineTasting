@@ -114,7 +114,21 @@ namespace WineTasting.Services
 
             }
         }
-
-
+        
+        public IEnumerable<RatingListItem> GetWineRatingList()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Ratings
+                    .Single(e => e.WineId == WineId);
+                    {
+                        WineId = e.WineId,
+                        CodeForBlindTasting = e.Wine.CodeForBlindTasting,
+                        CreatedUtc = e.CreatedUtc,
+                        ModifiedUtc = e.ModifiedUtc,
+                    }
+                    );
+                return query.ToArray();
+            }
     }
 }
