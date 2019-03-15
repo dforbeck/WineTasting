@@ -23,7 +23,6 @@ namespace WineTasting.Services
             {
                 OwnerId = _userId,
                 RatingId = model.RatingId,
-                TastingId = model.TastingId,
                 WineId = model.WineId,
                 GuestRating = model.GuestRating,
                 Comments = model.Comments,
@@ -47,9 +46,7 @@ namespace WineTasting.Services
                     {
                         OwnerId = e.OwnerId,
                         RatingId = e.RatingId,
-                        TastingId = e.TastingId,
                         WineId = e.WineId,
-                        TastingDate = e.Tasting.TastingDate,
                         CodeForBlindTasting = e.Wine.CodeForBlindTasting,
                         GuestRating = e.GuestRating,
                         Comments = e.Comments
@@ -69,10 +66,8 @@ namespace WineTasting.Services
                 {
                     OwnerId = entity.OwnerId,
                     RatingId = entity.RatingId,
-                    TastingId = entity.TastingId,
                     WineId = entity.WineId,
                     GuestRating = entity.GuestRating,
-                    TastingDate = entity.Tasting.TastingDate,
                     CodeForBlindTasting = entity.Wine.CodeForBlindTasting,
                     Comments = entity.Comments,
                     CreatedUtc = entity.CreatedUtc,
@@ -90,7 +85,6 @@ namespace WineTasting.Services
 
                 entity.OwnerId = model.OwnerId;
                 entity.RatingId = model.RatingId;
-                entity.TastingId = model.TastingId;
                 entity.WineId = model.WineId;
                 entity.GuestRating = model.GuestRating;
                 entity.Comments = model.Comments;
@@ -114,21 +108,22 @@ namespace WineTasting.Services
 
             }
         }
-        
-        public IEnumerable<RatingListItem> GetWineRatingList()
+        /*
+        public IEnumerable<Wine> GetWineRatingList()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx.Ratings
                     .Single(e => e.WineId == WineId);
-                    {
-                        WineId = e.WineId,
+                {
+                    WineId = e.WineId,
                         CodeForBlindTasting = e.Wine.CodeForBlindTasting,
                         CreatedUtc = e.CreatedUtc,
-                        ModifiedUtc = e.ModifiedUtc,
+                        ModifiedUtc = e.ModifiedUtc
                     }
                     );
                 return query.ToArray();
             }
+        }  */  
     }
 }

@@ -16,7 +16,7 @@ namespace WineTasting.WebMVC.Controllers
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new WineService(userId);
+            var service = new GetWinesByTastingId(userId);
             var model = service.GetWines();
 
             return View(model);
@@ -62,6 +62,7 @@ namespace WineTasting.WebMVC.Controllers
             {
                 OwnerId = detail.OwnerId,
                 WineId = detail.WineId,
+                TastingId = detail.TastingId,
                 Brand = detail.Brand,
                 SubBrand = detail.SubBrand,
                 WineVarietal = detail.WineVarietal,
@@ -119,11 +120,11 @@ namespace WineTasting.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        private WineService CreateWineService()
+        private GetWinesByTastingId CreateWineService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
 
-            var service = new WineService(userId);
+            var service = new GetWinesByTastingId(userId);
             return service;
         }
     }

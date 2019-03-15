@@ -11,18 +11,9 @@
     <hr />
     @Html.HiddenFor(model => model.OwnerId)
     @Html.HiddenFor(model => model.RatingId)
-    @Html.HiddenFor(model => model.TastingId)
     @Html.HiddenFor(model => model.WineId)
 
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TastingDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TastingDate)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.CodeForBlindTasting)
         </dt>

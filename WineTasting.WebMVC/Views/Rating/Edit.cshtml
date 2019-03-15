@@ -17,17 +17,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.OwnerId)
     @Html.HiddenFor(model => model.RatingId)
-    @Html.HiddenFor(model => model.TastingId)
     @Html.HiddenFor(model => model.WineId)
-
-    @**//TODO*@
-    <div class="form-group">
-        @Html.LabelFor(model => model.TastingDate, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.TastingDate, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.TastingDate, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.CodeForBlindTasting, htmlAttributes: new { @class = "control-label col-md-2" })

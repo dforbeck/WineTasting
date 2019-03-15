@@ -55,15 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\201903142006380_changedratingtable.cs" />
-    <Compile Include="Migrations\201903142006380_changedratingtable.Designer.cs">
-      <DependentUpon>201903142006380_changedratingtable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903142031245_deletedwinedate.cs" />
-    <Compile Include="Migrations\201903142031245_deletedwinedate.Designer.cs">
-      <DependentUpon>201903142031245_deletedwinedate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Tasting.cs" />
@@ -72,14 +63,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903142006380_changedratingtable.resx">
-      <DependentUpon>201903142006380_changedratingtable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903142031245_deletedwinedate.resx">
-      <DependentUpon>201903142031245_deletedwinedate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

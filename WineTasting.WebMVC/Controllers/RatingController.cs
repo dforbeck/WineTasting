@@ -29,10 +29,8 @@ namespace WineTasting.WebMVC.Controllers
         public ActionResult Create()
         {
             var wineSvc = CreateWineService();
-            var tastingSvc = CreateTastingService();
 
-            ViewBag.WineId = new SelectList(wineSvc.GetWines(), "WineId", "CodeForBlindTasting");
-            ViewBag.TastingId = new SelectList(tastingSvc.GetTastings(), "TastingId", "TastingDate");
+ //           ViewBag.WineId = new SelectList(wineSvc.GetWines(), "WineId", "CodeForBlindTasting");
 
             return View();
         }
@@ -73,8 +71,6 @@ namespace WineTasting.WebMVC.Controllers
                 OwnerId = detail.OwnerId,
                 RatingId = detail.RatingId,
                 WineId = detail.WineId,
-                TastingId = detail.TastingId,
-                TastingDate = detail.TastingDate,
                 CodeForBlindTasting = detail.CodeForBlindTasting,
                 GuestRating = detail.GuestRating,
                 Comments = detail.Comments
@@ -136,18 +132,19 @@ namespace WineTasting.WebMVC.Controllers
             return service;
         }
 
-        private WineService CreateWineService()
+        private GetWinesByTastingId CreateWineService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new WineService(userId);
+            var service = new GetWinesByTastingId(userId);
             return service;
         }
 
-        private TastingService CreateTastingService()
+        public ActionResult Create(int TastingId)
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new TastingService(userId);
-            return service;
+            var service = new ();
+            var model = service.GetWines();
+
+            return View(model);
         }
 
 

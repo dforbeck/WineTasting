@@ -12,6 +12,7 @@ namespace WineTasting.Models.Wine
     {
         public Guid OwnerId { get; set; }
         public int WineId { get; set; }
+        public int TastingId { get; set; }
 
         public string Brand { get; set; }
         public string SubBrand { get; set; }

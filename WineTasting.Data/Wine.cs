@@ -16,6 +16,7 @@ namespace WineTasting.Data
         [Key]
         public int WineId { get; set; }
         public Guid OwnerId { get; set; }
+        public int TastingId { get; set; } //foreign key
 
         [Required]
         public string Brand { get; set; }
@@ -42,6 +43,8 @@ namespace WineTasting.Data
         public DateTimeOffset? ModifiedUtc { get; set; }
 
         public double OverallRating { get; set; }
+
+        public virtual Tasting Tasting { get; set; } //virtual references
     }
 
 }

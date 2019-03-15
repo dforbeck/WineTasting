@@ -12,6 +12,7 @@ namespace WineTasting.Models.Wine
     {
         public int WineId { get; set; }
         public Guid OwnerId { get; set; }
+        public int TastingId { get; set; }
 
         [Display(Name = "Tasting Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]

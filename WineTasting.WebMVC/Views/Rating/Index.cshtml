@@ -5,10 +5,7 @@
 }
 
 <h2>Index</h2>
-@Html.HiddenFor(model => model.OwnerId)
-@Html.HiddenFor(model => model.RatingId)
-@Html.HiddenFor(model => model.TastingId)
-@Html.HiddenFor(model => model.WineId)
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -25,9 +22,6 @@
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TastingDate)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.CodeForBlindTasting)
         </th>
@@ -49,9 +43,6 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TastingDate)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodeForBlindTasting)
             </td>

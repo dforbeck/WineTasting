@@ -8,11 +8,11 @@ using WineTasting.Models.Wine;
 
 namespace WineTasting.Services
 {
-    public class WineService
+    public class GetWinesByTastingId
     {
         private readonly Guid _userId;
 
-        public WineService(Guid userId)
+        public GetWinesByTastingId(Guid userId)
         {
             _userId = userId;
         }
@@ -23,13 +23,14 @@ namespace WineTasting.Services
             {
                 OwnerId = _userId,
                 WineId = model.WineId,
+                TastingId = model.TastingId,
                 Brand = model.Brand,
                 SubBrand = model.SubBrand,
                 WineVarietal = model.WineVarietal,
                 Region = model.Region,
                 Year = model.Year,
                 CodeForBlindTasting = model.CodeForBlindTasting,
-                CreatedUtc = DateTimeOffset.Now                
+                CreatedUtc = DateTimeOffset.Now
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -48,12 +49,13 @@ namespace WineTasting.Services
                     {
                         OwnerId = e.OwnerId,
                         WineId = e.WineId,
+                        TastingId = e.TastingId,
                         Brand = e.Brand,
                         SubBrand = e.SubBrand,
                         WineVarietal = e.WineVarietal,
                         Region = e.Region,
                         Year = e.Year,
-                        CodeForBlindTasting = e.CodeForBlindTasting                        
+                        CodeForBlindTasting = e.CodeForBlindTasting
                     }
                     );
                 return query.ToArray();
@@ -70,6 +72,7 @@ namespace WineTasting.Services
                 {
                     OwnerId = entity.OwnerId,
                     WineId = entity.WineId,
+                    TastingId = entity.TastingId,
                     Brand = entity.Brand,
                     SubBrand = entity.SubBrand,
                     WineVarietal = entity.WineVarietal,
@@ -101,7 +104,6 @@ namespace WineTasting.Services
 
             }
         }
-
         public bool DeleteWine(int wineId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -114,6 +116,38 @@ namespace WineTasting.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+    }
 
+    public class GetWinesByTastingId
+    {
+        public GetWinesByTastingId(int tastingId)
+        {
+            TastingId = tastingId;
+        }
+
+        private readonly int TastingId;
+        private readonly int tastingId;
+
+        public IEnumerable<WineListItem> GetWines()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Wines
+                    .Where(e => e.TastingId == tastingId)
+                    .Select(e => new WineListItem
+                    {
+                        WineId = e.WineId,
+                        TastingId = e.TastingId,
+                        Brand = e.Brand,
+                        SubBrand = e.SubBrand,
+                        WineVarietal = e.WineVarietal,
+                        Region = e.Region,
+                        Year = e.Year,
+                        CodeForBlindTasting = e.CodeForBlindTasting
+                    }
+                     );
+                return query.ToArray();
+            }
+        }
     }
 }
