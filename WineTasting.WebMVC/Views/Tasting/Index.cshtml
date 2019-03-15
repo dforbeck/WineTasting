@@ -5,7 +5,6 @@
 }
 
 <h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -13,19 +12,16 @@
 @*Successful creation message*@
 @if (TempData.ContainsKey("SaveResult"))
 {
-<div class="alert alert-success fade in" role="alert">
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-    @TempData["SaveResult"]
-</div>
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
 }
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TastingId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.TastingDate)
         </th>
@@ -38,27 +34,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TastingId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TastingDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Host)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TastingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Host)
+            </td>
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TastingId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TastingId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TastingId })
-        </td>
-    </tr>
- }
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TastingId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TastingId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TastingId })
+            </td>
+        </tr>
+    }
 
 </table>

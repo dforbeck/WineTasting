@@ -5,26 +5,22 @@
 }
 
 <h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
-<div class="alert alert-success fade in" role="alert">
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-    @TempData["SaveResult"]
-</div>
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
 }
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.WineId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Brand)
         </th>
@@ -50,39 +46,37 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.WineId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubBrand)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubBrand)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.WineVarietal)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WineVarietal)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Region)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.CodeForBlindTasting)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeForBlindTasting)
+            </td>
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WineId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WineId  }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WineId })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.WineId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.WineId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.WineId })
+            </td>
+        </tr>
+    }
 
 </table>

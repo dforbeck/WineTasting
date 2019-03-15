@@ -12,6 +12,10 @@ namespace WineTasting.WebMVC.Controllers
     [Authorize]
     public class RatingController : Controller
     {
+        //TODO
+
+        //ViewBag.TastingDates = new private SelectListItem(db.Tastings, "TastingId", "TastingDate");
+
         // GET: Rating
         public ActionResult Index()
         {
@@ -145,5 +149,7 @@ namespace WineTasting.WebMVC.Controllers
             var service = new TastingService(userId);
             return service;
         }
+
+
     }
 }
