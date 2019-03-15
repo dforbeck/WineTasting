@@ -22,6 +22,9 @@ namespace WineTasting.Services
             var entity = new Rating()
             {
                 OwnerId = _userId,
+                RatingId = model.RatingId,
+                TastingId = model.TastingId,
+                WineId = model.WineId,
                 GuestRating = model.GuestRating,
                 Comments = model.Comments,
                 CreatedUtc = DateTimeOffset.Now
@@ -42,7 +45,12 @@ namespace WineTasting.Services
                     .Where(e => e.OwnerId == _userId)
                     .Select(e => new RatingListItem
                     {
+                        OwnerId = e.OwnerId,
                         RatingId = e.RatingId,
+                        TastingId = e.TastingId,
+                        WineId = e.WineId,
+                        TastingDate = e.Tasting.TastingDate,
+                        CodeForBlindTasting = e.Wine.CodeForBlindTasting,
                         GuestRating = e.GuestRating,
                         Comments = e.Comments
                     }
@@ -59,8 +67,13 @@ namespace WineTasting.Services
                     .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
                 return new RatingDetail
                 {
+                    OwnerId = entity.OwnerId,
                     RatingId = entity.RatingId,
+                    TastingId = entity.TastingId,
+                    WineId = entity.WineId,
                     GuestRating = entity.GuestRating,
+                    TastingDate = entity.Tasting.TastingDate,
+                    CodeForBlindTasting = entity.Wine.CodeForBlindTasting,
                     Comments = entity.Comments,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc
@@ -75,6 +88,10 @@ namespace WineTasting.Services
                 var entity = ctx.Ratings
                     .Single(e => e.RatingId == model.RatingId && e.OwnerId == _userId);
 
+                entity.OwnerId = model.OwnerId;
+                entity.RatingId = model.RatingId;
+                entity.TastingId = model.TastingId;
+                entity.WineId = model.WineId;
                 entity.GuestRating = model.GuestRating;
                 entity.Comments = model.Comments;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;

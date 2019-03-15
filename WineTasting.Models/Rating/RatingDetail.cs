@@ -15,15 +15,16 @@ namespace WineTasting.Models.Rating
         public int WineId { get; set; }
         public int TastingId { get; set; }
 
-        [Display(Name = "Blind Tasting Code")]
-        public BlindTastingCode CodeForBlindTasting { get; set; }
-
         [Display(Name = "Tasting Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset TastingDate { get; set; }
 
+        [Display(Name = "Blind Tasting Code")]
+        public BlindTastingCode CodeForBlindTasting { get; set; }
+
         [Display(Name = "My Point Rating")]
         public double GuestRating { get; set; }
+
         public string Comments { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }

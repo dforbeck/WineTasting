@@ -11,11 +11,10 @@ namespace WineTasting.Models.Wine
     public class WineListItem
     {
         public int WineId { get; set; }
-        public int TastingId { get; set; }
+        public Guid OwnerId { get; set; }
 
         [Display(Name = "Tasting Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset TastingDate { get; set; }
 
         public string Brand { get; set; }
@@ -29,10 +28,5 @@ namespace WineTasting.Models.Wine
 
         [Display(Name = "Blind Tasting Code")]
         public BlindTastingCode CodeForBlindTasting { get; set; }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

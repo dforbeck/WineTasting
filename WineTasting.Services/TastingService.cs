@@ -22,6 +22,7 @@ namespace WineTasting.Services
             var entity = new Tasting()
             {
                 OwnerId = _userId,
+                TastingId= model.TastingId,
                 TastingDate = model.TastingDate,
                 Title = model.Title,
                 Host = model.Host,
@@ -45,6 +46,7 @@ namespace WineTasting.Services
                     .Select
                     (e => new TastingListItem
                     {
+                        OwnerId = e.OwnerId,
                         TastingId = e.TastingId,
                         TastingDate = e.TastingDate,
                         Title = e.Title,
@@ -64,6 +66,7 @@ namespace WineTasting.Services
 
                 return new TastingDetail
                 {
+                    OwnerId = entity.OwnerId,
                     TastingId = entity.TastingId,
                     TastingDate = entity.TastingDate,
                     Title = entity.Title,
@@ -83,6 +86,8 @@ namespace WineTasting.Services
                 var entity = ctx.Tastings
                     .Single(e => e.TastingId == model.TastingId && e.OwnerId == _userId);
 
+                entity.OwnerId = model.OwnerId;
+                entity.TastingId = model.TastingId;
                 entity.TastingDate = model.TastingDate;
                 entity.Title = model.Title;
                 entity.Host = model.Host;

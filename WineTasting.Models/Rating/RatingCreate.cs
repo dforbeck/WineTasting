@@ -10,6 +10,11 @@ namespace WineTasting.Models.Rating
 {
     public class RatingCreate
     {
+        public int RatingId { get; set; }
+        public Guid OwnerId { get; set; }
+        public int TastingId { get; set; }
+        public int WineId { get; set; }
+
         [Display(Name = "Blind Tasting Code")]
         public BlindTastingCode CodeForBlindTasting { get; set; }
 
