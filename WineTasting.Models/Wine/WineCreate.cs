@@ -10,7 +10,9 @@ namespace WineTasting.Models.Wine
 {
     public class WineCreate
     {
-        [Required]
+        public Guid OwnerId { get; set; }
+        public int WineId { get; set; }
+
         public string Brand { get; set; }
 
         public string SubBrand { get; set; }

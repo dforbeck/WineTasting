@@ -22,6 +22,7 @@ namespace WineTasting.Services
             var entity = new Wine()
             {
                 OwnerId = _userId,
+                WineId = model.WineId,
                 Brand = model.Brand,
                 SubBrand = model.SubBrand,
                 WineVarietal = model.WineVarietal,
@@ -45,6 +46,7 @@ namespace WineTasting.Services
                     .Where(e => e.OwnerId == _userId)
                     .Select(e => new WineListItem
                     {
+                        OwnerId = e.OwnerId,
                         WineId = e.WineId,
                         Brand = e.Brand,
                         SubBrand = e.SubBrand,
@@ -66,6 +68,7 @@ namespace WineTasting.Services
                     .Single(e => e.WineId == wineId && e.OwnerId == _userId);
                 return new WineDetail
                 {
+                    OwnerId = entity.OwnerId,
                     WineId = entity.WineId,
                     Brand = entity.Brand,
                     SubBrand = entity.SubBrand,

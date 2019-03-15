@@ -43,10 +43,7 @@ namespace WineTasting.WebMVC.Controllers
 
             ModelState.AddModelError("", "Wine could not be created.");
 
-            return View(model);
-
-            
-
+            return View(model);          
         }
 
         public ActionResult Details (int id)
@@ -63,6 +60,7 @@ namespace WineTasting.WebMVC.Controllers
             var detail = service.GetWineById(id);
             var model = new WineEdit
             {
+                OwnerId = detail.OwnerId,
                 WineId = detail.WineId,
                 Brand = detail.Brand,
                 SubBrand = detail.SubBrand,

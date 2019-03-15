@@ -21,13 +21,14 @@ namespace WineTasting.WebMVC.Controllers
 
             return View(model);
         }
-
+//TODO
         public ActionResult Create()
         {
             var wineSvc = CreateWineService();
             var tastingSvc = CreateTastingService();
 
             ViewBag.WineId = new SelectList(wineSvc.GetWines(), "WineId", "CodeForBlindTasting");
+            ViewBag.TastingId = new SelectList(tastingSvc.GetTastings(), "TastingId", "TastingDate");
 
             return View();
         }
@@ -65,7 +66,12 @@ namespace WineTasting.WebMVC.Controllers
             var detail = service.GetRatingById(id);
             var model = new RatingEdit
             {
+                OwnerId = detail.OwnerId,
                 RatingId = detail.RatingId,
+                WineId = detail.WineId,
+                TastingId = detail.TastingId,
+                TastingDate = detail.TastingDate,
+                CodeForBlindTasting = detail.CodeForBlindTasting,
                 GuestRating = detail.GuestRating,
                 Comments = detail.Comments
             };

@@ -5,28 +5,31 @@
 }
 
 <h2>Index</h2>
-
+@Html.HiddenFor(model => model.OwnerId)
+@Html.HiddenFor(model => model.RatingId)
+@Html.HiddenFor(model => model.TastingId)
+@Html.HiddenFor(model => model.WineId)
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
-<div class="alert alert-success fade in" role="alert">
-    @ViewBag.SaveResult
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-</div>
+    <div class="alert alert-success fade in" role="alert">
+        @ViewBag.SaveResult
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
 }
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RatingId)
+            @Html.DisplayNameFor(model => model.TastingDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OwnerId)
+            @Html.DisplayNameFor(model => model.CodeForBlindTasting)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.GuestRating)
@@ -47,10 +50,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RatingId)
+                @Html.DisplayFor(modelItem => item.TastingDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnerId)
+                @Html.DisplayFor(modelItem => item.CodeForBlindTasting)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.GuestRating)
@@ -65,9 +68,9 @@
                 @Html.DisplayFor(modelItem => item.ModifiedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RatingId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.RatingId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.RatingId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.RatingId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RatingId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RatingId })
             </td>
         </tr>
     }

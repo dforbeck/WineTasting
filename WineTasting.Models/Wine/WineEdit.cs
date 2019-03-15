@@ -10,9 +10,8 @@ namespace WineTasting.Models.Wine
 {
     public class WineEdit
     {
-        [Display(Name = "Tasting Date")]
-        [DataType(DataType.Date)]
-        public DateTimeOffset TastingDate { get; set; }
+        public Guid OwnerId { get; set; }
+        public int WineId { get; set; }
 
         public string Brand { get; set; }
         public string SubBrand { get; set; }

@@ -61,11 +61,11 @@ namespace WineTasting.WebMVC.Controllers
             var detail = service.GetTastingById(id);
             var model = new TastingEdit
             {
+                OwnerId = detail.OwnerId,
                 TastingId = detail.TastingId,
                 TastingDate = detail.TastingDate,
                 Title = detail.Title,
-                Host = detail.Host,
-                TypeOfWine = detail.TypeOfWine
+                Host = detail.Host
 
             };
             return View(model);
