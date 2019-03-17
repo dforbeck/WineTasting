@@ -117,7 +117,7 @@ namespace WineTasting.Services
             }
         }
     }
-
+    /*
     public class GetWinesByTastingId
     {
         public GetWinesByTastingId(int tastingId)
@@ -148,6 +148,6 @@ namespace WineTasting.Services
                      );
                 return query.ToArray();
             }
-        }
-    }
+        } 
+    } */
 }

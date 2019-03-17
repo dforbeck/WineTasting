@@ -138,7 +138,7 @@ namespace WineTasting.WebMVC.Controllers
             var service = new GetWinesByTastingId(userId);
             return service;
         }
-
+        /*
         public ActionResult Create(int TastingId)
         {
             var service = new ();
@@ -146,7 +146,7 @@ namespace WineTasting.WebMVC.Controllers
 
             return View(model);
         }
-
+        */
 
     }
 }
