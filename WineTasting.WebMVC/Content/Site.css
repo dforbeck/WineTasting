@@ -26,3 +26,55 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.jumbotron {
+    background-image:url('../../Content/Assets/Vineyard.jpg') ;
+    background-size: cover ; 
+    border-radius: 25px; 
+    height:400px;
+}
+
+.jtitle {
+    background-color: rgba(255, 255, 255, .6) ; 
+    color:darkslategray; 
+    border-radius: 25px; 
+    border:3px; 
+    border-style:solid; 
+    border-color:rosybrown
+}
+
+.jmessage {
+    border:3px; 
+    border-style:solid; 
+    border-color:rosybrown; 
+    padding: 1em; 
+    border-radius: 25px; 
+    text-align: center;
+}
+
+.cardgroup {
+    display:flex; 
+    justify-content:space-between; 
+    padding: 1rem; 
+    align-items:stretch;
+}
+
+.eachcard {
+    align-items:initial;
+    border:3px; 
+    border-style:solid; 
+    border-color:rosybrown; 
+    padding: 2em; 
+    padding-top: 1em; 
+    border-radius:25px; 
+    margin: 12px;
+}
+
+.startedbutton {
+    border-radius:15px; 
+    background-color:rosybrown; 
+    color:antiquewhite; 
+    position: absolute; 
+    bottom:1rem;
+}
+
