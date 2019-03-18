@@ -36,6 +36,10 @@
                         <li>@Html.ActionLink("Ratings", "Index", "Rating")</li>
                     }
 
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Learn", "Index", "Learn")</li>
+                    }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>

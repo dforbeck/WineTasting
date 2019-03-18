@@ -15,16 +15,18 @@ namespace WineTasting.WebMVC.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Tastings, Wines, Ratings, oh my...";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Please contact us any time!";
 
             return View();
         }
+
+
     }
 }
