@@ -29,7 +29,7 @@ namespace WineTasting.Services
                 CreatedUtc = DateTimeOffset.Now
             };
 
-            using (var ctx = new  ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 ctx.Ratings.Add(entity);
                 return ctx.SaveChanges() == 1;
@@ -55,6 +55,28 @@ namespace WineTasting.Services
                 return query.ToArray();
             }
         }
+
+        //TODO
+        /*
+        public IEnumerable<RatingListItem> GetRatingsbyWineId(int wineId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Ratings
+                    .Where(e => e.WineId == wineId)
+                    .Select(e => new RatingListItem
+                    {
+                        OwnerId = e.OwnerId,
+                        RatingId = e.RatingId,
+                        WineId = e.WineId,
+                        CodeForBlindTasting = e.Wine.CodeForBlindTasting,
+                        GuestRating = e.GuestRating,
+                        Comments = e.Comments
+                    }
+                    );
+                return query.ToArray();
+            } */
+
 
         public RatingDetail GetRatingById(int ratingId)
         {
@@ -90,7 +112,7 @@ namespace WineTasting.Services
                 entity.Comments = model.Comments;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
-                return ctx.SaveChanges() == 1;                 
+                return ctx.SaveChanges() == 1;
             }
 
         }
@@ -108,6 +130,5 @@ namespace WineTasting.Services
 
             }
         }
-
     }
 }

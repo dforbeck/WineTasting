@@ -22,7 +22,7 @@ namespace WineTasting.Services
             var entity = new Tasting()
             {
                 OwnerId = _userId,
-                TastingId= model.TastingId,
+                //TastingId= model.TastingId,
                 TastingDate = model.TastingDate,
                 Title = model.Title,
                 Host = model.Host,
@@ -43,6 +43,28 @@ namespace WineTasting.Services
             {
                 var query = ctx.Tastings
                     .Where(e => e.OwnerId == _userId)
+                    .Select
+                    (e => new TastingListItem
+                    {
+                        OwnerId = e.OwnerId,
+                        TastingId = e.TastingId,
+                        TastingDate = e.TastingDate,
+                        Title = e.Title,
+                        Host = e.Host,
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<TastingListItem> GetWinesByTastingId(int tastingId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = 
+                    ctx
+                    .Tastings
+                    .Where(e => e.TastingId == tastingId)
                     .Select
                     (e => new TastingListItem
                     {

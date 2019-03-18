@@ -22,8 +22,12 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int tastingId)
         {
+          /*  var tastingSvc = CreateTastingService();
+
+            ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate");
+         */
             return View();
         }
 
@@ -125,6 +129,14 @@ namespace WineTasting.WebMVC.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
 
             var service = new WineService(userId);
+            return service;
+        }
+
+        private TastingService CreateTastingService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+
+            var service = new TastingService(userId);
             return service;
         }
     }
