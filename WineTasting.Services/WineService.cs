@@ -8,11 +8,11 @@ using WineTasting.Models.Wine;
 
 namespace WineTasting.Services
 {
-    public class GetWinesByTastingId
+    public class WineService
     {
         private readonly Guid _userId;
 
-        public GetWinesByTastingId(Guid userId)
+        public WineService(Guid userId)
         {
             _userId = userId;
         }
@@ -43,7 +43,9 @@ namespace WineTasting.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Wines
+                var query =
+                    ctx
+                    .Wines
                     .Where(e => e.OwnerId == _userId)
                     .Select(e => new WineListItem
                     {
@@ -62,11 +64,37 @@ namespace WineTasting.Services
             }
         }
 
+        public IEnumerable<WineListItem> GetWinesByTastingId(int tastingId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = 
+                    ctx
+                    .Wines
+                    .Where(e => e.TastingId == tastingId)
+                    .Select(e => new WineListItem
+                    {
+                        WineId = e.WineId,
+                        TastingId = e.TastingId,
+                        Brand = e.Brand,
+                        SubBrand = e.SubBrand,
+                        WineVarietal = e.WineVarietal,
+                        Region = e.Region,
+                        Year = e.Year,
+                        CodeForBlindTasting = e.CodeForBlindTasting
+                    }
+                     );
+                return query.ToArray();
+            }
+        }
+
         public WineDetail GetWineById(int wineId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Wines
+                var entity =
+                    ctx
+                    .Wines
                     .Single(e => e.WineId == wineId && e.OwnerId == _userId);
                 return new WineDetail
                 {
@@ -82,7 +110,6 @@ namespace WineTasting.Services
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc
                 };
-
             }
         }
 
@@ -116,38 +143,7 @@ namespace WineTasting.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        
     }
-    /*
-    public class GetWinesByTastingId
-    {
-        public GetWinesByTastingId(int tastingId)
-        {
-            TastingId = tastingId;
-        }
-
-        private readonly int TastingId;
-        private readonly int tastingId;
-
-        public IEnumerable<WineListItem> GetWines()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query = ctx.Wines
-                    .Where(e => e.TastingId == tastingId)
-                    .Select(e => new WineListItem
-                    {
-                        WineId = e.WineId,
-                        TastingId = e.TastingId,
-                        Brand = e.Brand,
-                        SubBrand = e.SubBrand,
-                        WineVarietal = e.WineVarietal,
-                        Region = e.Region,
-                        Year = e.Year,
-                        CodeForBlindTasting = e.CodeForBlindTasting
-                    }
-                     );
-                return query.ToArray();
-            }
-        } 
-    } */
 }

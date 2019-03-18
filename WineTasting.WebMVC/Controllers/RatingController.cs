@@ -19,18 +19,17 @@ namespace WineTasting.WebMVC.Controllers
         // GET: Rating
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RatingService(userId);
+            var service = CreateRatingService();
             var model = service.GetRatings();
 
             return View(model);
         }
 //TODO
-        public ActionResult Create()
+        public ActionResult Create(int tastingId)
         {
             var wineSvc = CreateWineService();
 
- //           ViewBag.WineId = new SelectList(wineSvc.GetWines(), "WineId", "CodeForBlindTasting");
+            ViewBag.WineId = new SelectList(wineSvc.GetWinesByTastingId(tastingId), "WineId", "CodeForBlindTasting");
 
             return View();
         }
@@ -132,21 +131,11 @@ namespace WineTasting.WebMVC.Controllers
             return service;
         }
 
-        private GetWinesByTastingId CreateWineService()
+        private WineService CreateWineService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GetWinesByTastingId(userId);
+            var service = new WineService(userId);
             return service;
-        }
-        /*
-        public ActionResult Create(int TastingId)
-        {
-            var service = new ();
-            var model = service.GetWines();
-
-            return View(model);
-        }
-        */
-
+        }               
     }
 }
