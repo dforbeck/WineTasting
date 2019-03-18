@@ -27,6 +27,11 @@ namespace WineTasting.WebMVC.Controllers
             return View();
         }
 
+        public ActionResult Learn()
+        {
+
+            return View();
+        }
 
     }
 }
