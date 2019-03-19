@@ -37,6 +37,7 @@
     @foreach (var item in Model)
     {
         <tr>
+            @Html.HiddenFor(modelItem=> item.TastingId)
             <td>
                 @Html.DisplayFor(modelItem => item.TastingDate)
             </td>
@@ -48,7 +49,7 @@
             </td>
 
             <td>
-                @Html.ActionLink("Add Wine", "Wine", "Create", null, new { tastingId = item.TastingId }) |
+                @Html.ActionLink("Add Wine", "Create", "Wine", new { id = item.TastingId }, null) |
                 @Html.ActionLink("Edit", "Edit", new { id = item.TastingId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.TastingId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.TastingId })

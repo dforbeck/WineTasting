@@ -257,7 +257,6 @@
     <Content Include="Views\Tasting\Edit.cshtml" />
     <Content Include="Views\Tasting\Delete.cshtml" />
     <Content Include="Views\Wine\Index.cshtml" />
-    <Content Include="Views\Wine\Create.cshtml" />
     <Content Include="Views\Wine\Details.cshtml" />
     <Content Include="Views\Wine\Edit.cshtml" />
     <Content Include="Views\Wine\Delete.cshtml" />
@@ -267,6 +266,7 @@
     <Content Include="Views\Rating\Edit.cshtml" />
     <Content Include="Views\Rating\Delete.cshtml" />
     <Content Include="Views\Home\Learn.cshtml" />
+    <Content Include="Views\Wine\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

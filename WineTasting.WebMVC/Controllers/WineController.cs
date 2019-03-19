@@ -22,14 +22,20 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Create(int tastingId)
+        public ActionResult Create(int id)
         {
-          /*  var tastingSvc = CreateTastingService();
+            var wineSvc = CreateWineService();
+            var winesByTasting = wineSvc.GetWinesByTastingId(id);
+            var model = new WineCreate
+            {
+                TastingId = id
+            };
 
-            ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate");
-         */
-            return View();
+            /*   ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate"); */
+        
+            return View(model);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
