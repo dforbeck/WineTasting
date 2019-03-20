@@ -87,11 +87,11 @@ namespace WineTasting.WebMVC.Controllers
 
             if (service.UpdateTasting(model))
             {
-                TempData["SaveResult"] = "Your note was updated.";
+                TempData["SaveResult"] = "Your Tasting was updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your note could not be updated.");
+            ModelState.AddModelError("", "Your Tasting could not be updated.");
             return View(model);
         }
 
@@ -113,7 +113,7 @@ namespace WineTasting.WebMVC.Controllers
 
             service.DeleteTasting(id);
 
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your Tasting was deleted";
 
             return RedirectToAction("Index");
         }

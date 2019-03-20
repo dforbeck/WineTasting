@@ -38,7 +38,7 @@ namespace WineTasting.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
+//TODO
         public IEnumerable<WineListItem> GetWines()
         {
             using (var ctx = new ApplicationDbContext())
@@ -46,12 +46,13 @@ namespace WineTasting.Services
                 var query =
                     ctx
                     .Wines
-                    .Where(e => e.OwnerId == _userId)
+                    .Where(e => e.OwnerId == _userId )
                     .Select(e => new WineListItem
                     {
                         OwnerId = e.OwnerId,
                         WineId = e.WineId,
                         TastingId = e.TastingId,
+                        TastingDate = e.Tasting.TastingDate,
                         Brand = e.Brand,
                         SubBrand = e.SubBrand,
                         WineVarietal = e.WineVarietal,
@@ -76,6 +77,7 @@ namespace WineTasting.Services
                     {
                         WineId = e.WineId,
                         TastingId = e.TastingId,
+                        TastingDate = e.Tasting.TastingDate,
                         Brand = e.Brand,
                         SubBrand = e.SubBrand,
                         WineVarietal = e.WineVarietal,
@@ -101,6 +103,7 @@ namespace WineTasting.Services
                     OwnerId = entity.OwnerId,
                     WineId = entity.WineId,
                     TastingId = entity.TastingId,
+                    TastingDate = entity.Tasting.TastingDate,
                     Brand = entity.Brand,
                     SubBrand = entity.SubBrand,
                     WineVarietal = entity.WineVarietal,

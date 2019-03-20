@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WineTasting.Data;
 using WineTasting.Models.Wine;
 using WineTasting.Services;
 
@@ -22,20 +23,20 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Create(int id)
+        public ActionResult Create(int tastingId)
         {
             var wineSvc = CreateWineService();
-            var winesByTasting = wineSvc.GetWinesByTastingId(id);
+            var winesByTasting = wineSvc.GetWinesByTastingId(tastingId);
             var model = new WineCreate
             {
-                TastingId = id
+                TastingId = tastingId,
+                TastingDate = winesByTasting.First().TastingDate,
             };
 
             /*   ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate"); */
         
             return View(model);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -47,7 +48,7 @@ namespace WineTasting.WebMVC.Controllers
 
             if (service.CreateWine(model))
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Your Wine was created.";
                 return RedirectToAction("Index");
             };
 

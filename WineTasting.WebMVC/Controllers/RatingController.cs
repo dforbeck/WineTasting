@@ -24,7 +24,6 @@ namespace WineTasting.WebMVC.Controllers
 
             return View(model);
         }
-//TODO
         public ActionResult Create(int tastingId)
         {
             var wineSvc = CreateWineService();

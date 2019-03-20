@@ -49,7 +49,7 @@
             </td>
 
             <td>
-                @Html.ActionLink("Add Wine", "Create", "Wine", new { id = item.TastingId }, null) |
+                @Html.ActionLink("Add Wine", "Create", "Wine", new { item.TastingId}, null) |
                 @Html.ActionLink("Edit", "Edit", new { id = item.TastingId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.TastingId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.TastingId })

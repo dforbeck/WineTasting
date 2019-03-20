@@ -56,8 +56,6 @@ namespace WineTasting.Services
             }
         }
 
-        //TODO
-        /*
         public IEnumerable<RatingListItem> GetRatingsbyWineId(int wineId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -75,60 +73,60 @@ namespace WineTasting.Services
                     }
                     );
                 return query.ToArray();
-            } */
+            }
 
-
-        public RatingDetail GetRatingById(int ratingId)
-        {
-            using (var ctx = new ApplicationDbContext())
+        }
+            public RatingDetail GetRatingById(int ratingId)
             {
-                var entity = ctx.Ratings
-                    .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
-                return new RatingDetail
+                using (var ctx = new ApplicationDbContext())
                 {
-                    OwnerId = entity.OwnerId,
-                    RatingId = entity.RatingId,
-                    WineId = entity.WineId,
-                    GuestRating = entity.GuestRating,
-                    CodeForBlindTasting = entity.Wine.CodeForBlindTasting,
-                    Comments = entity.Comments,
-                    CreatedUtc = entity.CreatedUtc,
-                    ModifiedUtc = entity.ModifiedUtc
-                };
-            }
-        }
-
-        public bool UpdateRating(RatingEdit model)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity = ctx.Ratings
-                    .Single(e => e.RatingId == model.RatingId && e.OwnerId == _userId);
-
-                entity.OwnerId = model.OwnerId;
-                entity.RatingId = model.RatingId;
-                entity.WineId = model.WineId;
-                entity.GuestRating = model.GuestRating;
-                entity.Comments = model.Comments;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
-
-                return ctx.SaveChanges() == 1;
+                    var entity = ctx.Ratings
+                        .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
+                    return new RatingDetail
+                    {
+                        OwnerId = entity.OwnerId,
+                        RatingId = entity.RatingId,
+                        WineId = entity.WineId,
+                        GuestRating = entity.GuestRating,
+                        CodeForBlindTasting = entity.Wine.CodeForBlindTasting,
+                        Comments = entity.Comments,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
+                    };
+                }
             }
 
-        }
-
-        public bool DeleteRating(int ratingId)
-        {
-            using (var ctx = new ApplicationDbContext())
+            public bool UpdateRating(RatingEdit model)
             {
-                var entity = ctx.Ratings
-                    .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
+                using (var ctx = new ApplicationDbContext())
+                {
+                    var entity = ctx.Ratings
+                        .Single(e => e.RatingId == model.RatingId && e.OwnerId == _userId);
 
-                ctx.Ratings.Remove(entity);
+                    entity.OwnerId = model.OwnerId;
+                    entity.RatingId = model.RatingId;
+                    entity.WineId = model.WineId;
+                    entity.GuestRating = model.GuestRating;
+                    entity.Comments = model.Comments;
+                    entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
-                return ctx.SaveChanges() == 1;
+                    return ctx.SaveChanges() == 1;
+                }
 
+            }
+
+            public bool DeleteRating(int ratingId)
+            {
+                using (var ctx = new ApplicationDbContext())
+                {
+                    var entity = ctx.Ratings
+                        .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
+
+                    ctx.Ratings.Remove(entity);
+
+                    return ctx.SaveChanges() == 1;
+
+                }
             }
         }
     }
-}
