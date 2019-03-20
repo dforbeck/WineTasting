@@ -14,23 +14,28 @@ namespace WineTasting.WebMVC.Controllers
     public class WineController : Controller
     {
         // GET: Wine
-        public ActionResult Index()
+        public ActionResult Index(int tastingId)
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new WineService(userId);
-            var model = service.GetWines();
+            var tastingSvc = CreateTastingService();
+            var tasting = tastingSvc.GetTastingById(tastingId);
 
-            return View(model);
+            var wineSvc = CreateWineService();
+            var wines = wineSvc.GetWinesByTastingId(tasting);
+
+            return View(wines);
         }
 
         public ActionResult Create(int tastingId)
         {
             var wineSvc = CreateWineService();
-            var winesByTasting = wineSvc.GetWinesByTastingId(tastingId);
+            var tastingSvc = CreateTastingService();
+            var tasting = tastingSvc.GetTastingById(tastingId);
+           // var winesByTasting = wineSvc.GetWinesByTastingId(tastingId);
             var model = new WineCreate
             {
                 TastingId = tastingId,
-                TastingDate = winesByTasting.First().TastingDate,
+                //TastingDate = winesByTasting.First().TastingDate,
+                TastingDate = tasting.TastingDate
             };
 
             /*   ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate"); */

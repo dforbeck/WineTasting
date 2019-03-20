@@ -24,6 +24,7 @@ namespace WineTasting.WebMVC.Controllers
 
             return View(model);
         }
+        /*
         public ActionResult Create(int tastingId)
         {
             var wineSvc = CreateWineService();
@@ -32,7 +33,7 @@ namespace WineTasting.WebMVC.Controllers
 
             return View();
         }
-
+        */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(RatingCreate model)

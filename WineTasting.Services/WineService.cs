@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WineTasting.Data;
+using WineTasting.Models.Tasting;
 using WineTasting.Models.Wine;
 
 namespace WineTasting.Services
@@ -38,46 +39,54 @@ namespace WineTasting.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-//TODO
-        public IEnumerable<WineListItem> GetWines()
+
+        public IEnumerable<WineListItem> AddTastingDateToWineList(TastingDetail tasting, IEnumerable<WineListItem> wines)
         {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Wines
-                    .Where(e => e.OwnerId == _userId )
-                    .Select(e => new WineListItem
-                    {
-                        OwnerId = e.OwnerId,
-                        WineId = e.WineId,
-                        TastingId = e.TastingId,
-                        TastingDate = e.Tasting.TastingDate,
-                        Brand = e.Brand,
-                        SubBrand = e.SubBrand,
-                        WineVarietal = e.WineVarietal,
-                        Region = e.Region,
-                        Year = e.Year,
-                        CodeForBlindTasting = e.CodeForBlindTasting
-                    }
-                    );
-                return query.ToArray();
-            }
+            foreach (var wine in wines)
+                wine.TastingDate = tasting.TastingDate;
+            return wines;
         }
 
-        public IEnumerable<WineListItem> GetWinesByTastingId(int tastingId)
+        /*
+      public IEnumerable<WineListItem> GetWines()
+      {
+          using (var ctx = new ApplicationDbContext())
+          {
+              var query =
+                  ctx
+                  .Wines
+                  .Where(e => e.OwnerId == _userId )
+                  .Select(e => new WineListItem
+                  {
+                      OwnerId = e.OwnerId,
+                      WineId = e.WineId,
+                      TastingId = e.TastingId,
+                      TastingDate = e.Tasting.TastingDate,
+                      Brand = e.Brand,
+                      SubBrand = e.SubBrand,
+                      WineVarietal = e.WineVarietal,
+                      Region = e.Region,
+                      Year = e.Year,
+                      CodeForBlindTasting = e.CodeForBlindTasting
+                  }
+                  );
+              return query.ToArray();
+          }
+      } */
+
+        public IEnumerable<WineListItem> GetWinesByTastingId(TastingDetail tasting)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query = 
                     ctx
                     .Wines
-                    .Where(e => e.TastingId == tastingId)
+                    .Where(e => e.TastingId == tasting.TastingId)
                     .Select(e => new WineListItem
                     {
                         WineId = e.WineId,
                         TastingId = e.TastingId,
-                        TastingDate = e.Tasting.TastingDate,
+                        TastingDate = tasting.TastingDate,
                         Brand = e.Brand,
                         SubBrand = e.SubBrand,
                         WineVarietal = e.WineVarietal,
@@ -134,6 +143,7 @@ namespace WineTasting.Services
 
             }
         }
+
         public bool DeleteWine(int wineId)
         {
             using (var ctx = new ApplicationDbContext())
