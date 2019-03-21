@@ -63,7 +63,7 @@ namespace WineTasting.WebMVC.Controllers
                 //TODO Missing a TastingId= tastinggId;
                 //TastingId = tastingId;
                 TempData["SaveResult"] = "Your Wine was created.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Wine", new { tastingId });
             };
 
             ModelState.AddModelError("", "Wine could not be created.");

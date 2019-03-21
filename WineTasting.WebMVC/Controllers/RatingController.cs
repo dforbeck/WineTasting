@@ -12,10 +12,6 @@ namespace WineTasting.WebMVC.Controllers
     [Authorize]
     public class RatingController : Controller
     {
-        //TODO
-
-        //ViewBag.TastingDates = new private SelectListItem(db.Tastings, "TastingId", "TastingDate");
-
         // GET: Rating
         public ActionResult Index()
         {
@@ -24,16 +20,27 @@ namespace WineTasting.WebMVC.Controllers
 
             return View(model);
         }
-        /*
-        public ActionResult Create(int tastingId)
+
+        public ActionResult Create(int wineId)
         {
-            var wineSvc = CreateWineService();
+            var tastingSvc = CreateTastingService();
+            var tasting = tastingSvc.GetTastingById(tastingId);
 
-            ViewBag.WineId = new SelectList(wineSvc.GetWinesByTastingId(tastingId), "WineId", "CodeForBlindTasting");
+            var ratingSvc = CreateRatingService();
+            // var wines = wineSvc.GetWinesByTastingId(tasting);
+            // var winesByTasting = wineSvc.GetWinesByTastingId(tastingId);
+            var model = new RatingCreate
+            {
+                TastingId = tastingId,
+                TastingDate = tasting.TastingDate
+            };
 
-            return View();
+            /*   ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate"); */
+
+            return View(model);
         }
-        */
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(RatingCreate model)

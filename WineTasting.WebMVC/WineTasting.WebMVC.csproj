@@ -260,13 +260,13 @@
     <Content Include="Views\Wine\Details.cshtml" />
     <Content Include="Views\Wine\Edit.cshtml" />
     <Content Include="Views\Wine\Delete.cshtml" />
-    <Content Include="Views\Rating\Index.cshtml" />
     <Content Include="Views\Rating\Create.cshtml" />
     <Content Include="Views\Rating\Details.cshtml" />
     <Content Include="Views\Rating\Edit.cshtml" />
     <Content Include="Views\Rating\Delete.cshtml" />
     <Content Include="Views\Home\Learn.cshtml" />
     <Content Include="Views\Wine\Create.cshtml" />
+    <Content Include="Views\Rating\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
