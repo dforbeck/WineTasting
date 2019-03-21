@@ -13,29 +13,29 @@ namespace WineTasting.WebMVC.Controllers
     public class RatingController : Controller
     {
         // GET: Rating
-        public ActionResult Index()
+        public ActionResult Index(int wineId)
         {
-            var service = CreateRatingService();
-            var model = service.GetRatings();
+            var wineSvc = CreateWineService();
+            var wine = wineSvc.GetWineById(wineId);
 
-            return View(model);
+            var ratingService = CreateRatingService();
+            var ratings = ratingService.GetRatingsbyWineId(wine);
+
+            return View(ratings);
         }
 
         public ActionResult Create(int wineId)
         {
-            var tastingSvc = CreateTastingService();
-            var tasting = tastingSvc.GetTastingById(tastingId);
+            var wineSvc = CreateWineService();
+            var wine = wineSvc.GetWineById(wineId);
 
             var ratingSvc = CreateRatingService();
-            // var wines = wineSvc.GetWinesByTastingId(tasting);
-            // var winesByTasting = wineSvc.GetWinesByTastingId(tastingId);
+           
             var model = new RatingCreate
             {
-                TastingId = tastingId,
-                TastingDate = tasting.TastingDate
+                WineId = wineId,
+                CodeForBlindTasting = wine.CodeForBlindTasting
             };
-
-            /*   ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate"); */
 
             return View(model);
         }
@@ -43,7 +43,7 @@ namespace WineTasting.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(RatingCreate model)
+        public ActionResult Create(RatingCreate model, int wineId)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -52,7 +52,7 @@ namespace WineTasting.WebMVC.Controllers
             if (service.CreateRating(model)) 
                 {
                 TempData["SaveResult"] = "Your Rating was created.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Rating", new { wineId});
                 };
 
             ModelState.AddModelError("", "Rating could not be created.");

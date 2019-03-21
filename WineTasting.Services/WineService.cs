@@ -17,8 +17,7 @@ namespace WineTasting.Services
         {
             _userId = userId;
         }
- 
- //TODO MISSING tastingId, when HTTPost comes here no tastingId is available to save and bring into Index
+
         public bool CreateWine(WineCreate model)
         {
             var entity = new Wine()
@@ -40,14 +39,6 @@ namespace WineTasting.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        public IEnumerable<WineListItem> AddTastingDateToWineList(TastingDetail tasting, IEnumerable<WineListItem> wines)
-        {
-            foreach (var wine in wines)
-                wine.TastingDate = tasting.TastingDate;
-            return wines;
-        }
-
 
         public IEnumerable<WineListItem> GetWinesByTastingId(TastingDetail tasting)
         {

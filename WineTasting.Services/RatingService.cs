@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WineTasting.Data;
+using WineTasting.Models.Wine;
 using WineTasting.Models.Rating;
 
 namespace WineTasting.Services
@@ -36,6 +37,7 @@ namespace WineTasting.Services
             }
         }
 
+        /*
         public IEnumerable<RatingListItem> GetRatings()
         {
             using (var ctx = new ApplicationDbContext())
@@ -55,19 +57,22 @@ namespace WineTasting.Services
                 return query.ToArray();
             }
         }
+        */
 
-        public IEnumerable<RatingListItem> GetRatingsbyWineId(int wineId)
+        public IEnumerable<RatingListItem> GetRatingsbyWineId(WineDetail wine)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Ratings
-                    .Where(e => e.WineId == wineId)
+                var query = 
+                    ctx
+                    .Ratings
+                    .Where(e => e.WineId == wine.WineId)
                     .Select(e => new RatingListItem
                     {
                         OwnerId = e.OwnerId,
                         RatingId = e.RatingId,
                         WineId = e.WineId,
-                        CodeForBlindTasting = e.Wine.CodeForBlindTasting,
+                        CodeForBlindTasting = wine.CodeForBlindTasting,
                         GuestRating = e.GuestRating,
                         Comments = e.Comments
                     }
@@ -76,11 +81,14 @@ namespace WineTasting.Services
             }
 
         }
+
             public RatingDetail GetRatingById(int ratingId)
             {
                 using (var ctx = new ApplicationDbContext())
                 {
-                    var entity = ctx.Ratings
+                    var entity = 
+                        ctx
+                        .Ratings
                         .Single(e => e.RatingId == ratingId && e.OwnerId == _userId);
                     return new RatingDetail
                     {
