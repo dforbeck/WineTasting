@@ -27,14 +27,15 @@ namespace WineTasting.WebMVC.Controllers
 
         public ActionResult Create(int tastingId)
         {
-            var wineSvc = CreateWineService();
             var tastingSvc = CreateTastingService();
             var tasting = tastingSvc.GetTastingById(tastingId);
-           // var winesByTasting = wineSvc.GetWinesByTastingId(tastingId);
-            var model = new WineCreate
+
+            var wineSvc = CreateWineService();
+            // var wines = wineSvc.GetWinesByTastingId(tasting);
+            // var winesByTasting = wineSvc.GetWinesByTastingId(tastingId);
+            var model = new WineCreate 
             {
                 TastingId = tastingId,
-                //TastingDate = winesByTasting.First().TastingDate,
                 TastingDate = tasting.TastingDate
             };
 
@@ -43,16 +44,24 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(WineCreate model)
+        public ActionResult Create(WineCreate model, int tastingId)
         {
+           // TastingId = tastingId;
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateWineService();
+     /*       var newModel = new WineCreate
+            {
+                TastingId = tastingId              
+            }; */
 
             if (service.CreateWine(model))
             {
+                //TODO Missing a TastingId= tastinggId;
+                //TastingId = tastingId;
                 TempData["SaveResult"] = "Your Wine was created.";
                 return RedirectToAction("Index");
             };
