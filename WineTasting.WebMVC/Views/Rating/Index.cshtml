@@ -60,11 +60,12 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.RatingId })
             </td>
         </tr>
-        
-        @Html.ActionLink("Back to My Tasting Wine List", "Index", "Wine", new { item.WineId }, null)
     }
 
 </table>
+
+
+@Html.ActionLink("Back to My Tasting Wine List", "Index", "Wine", new { Model.First().WineId }, null)
 
 
 

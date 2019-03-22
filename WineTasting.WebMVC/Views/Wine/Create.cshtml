@@ -94,10 +94,12 @@
     </div>
 }
 
-<div>
+    <div>
 
-    @Html.ActionLink("Back to Tasting List", "Index", "Tasting")
-</div>
+        @Html.ActionLink("Back to Tasting List", "Index", "Tasting") |
+        @Html.ActionLink("Back to Wine to List", "Index", "Wine", new { Model.TastingId }, null)
+
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
