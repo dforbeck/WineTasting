@@ -23,8 +23,19 @@ namespace WineTasting.WebMVC.Controllers
             var wines = wineSvc.GetWinesByTastingId(tasting);
 
             return View(wines);
-        }
+        } 
+        /*
+        public ActionResult RedirectToTastingfromRatingIndex (int tastingId)
+        {
+            var tastingSvc = CreateTastingService();
+            var tasting = tastingSvc.GetTastingById(tastingId);
 
+            var wineSvc = CreateWineService();
+            var wines = wineSvc.GetWineDetailByTastingId(tastingId);
+
+            return View(wines);
+        }
+        */
         public ActionResult Create(int tastingId)
         {
             var tastingSvc = CreateTastingService();
