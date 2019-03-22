@@ -67,5 +67,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.WineId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to My Tasting Wine List", null, null, null, new { href = Request.UrlReferrer })
 </p>

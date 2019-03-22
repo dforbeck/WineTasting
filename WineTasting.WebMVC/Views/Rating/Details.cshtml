@@ -58,5 +58,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.RatingId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("See My Ratings", "Index", "Rating", new { Model.WineId }, null)
 </p>

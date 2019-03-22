@@ -17,80 +17,87 @@
 }
 
 <h3> For the following Tasting:</h3>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.TastingId)
-                </th>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TastingId)
+        </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.TastingDate)
-                </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TastingDate)
+        </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Brand)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SubBrand)
-                </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubBrand)
+        </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.WineVarietal)
-                </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WineVarietal)
+        </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Region)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Year)
-                </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Region)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.CodeForBlindTasting)
-                </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeForBlindTasting)
+        </th>
 
-                <th></th>
-            </tr>
+        <th></th>
+    </tr>
 
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => item.TastingId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TastingDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Brand)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubBrand)
-                </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.TastingId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TastingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubBrand)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.WineVarietal)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WineVarietal)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Region)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Year)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.CodeForBlindTasting)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeForBlindTasting)
+            </td>
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.WineId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.WineId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.WineId })|
-                    @Html.ActionLink("Rate", "Create", "Rating", new { item.WineId }, null)
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.WineId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.WineId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.WineId })|
+                @Html.ActionLink("Rate", "Create", "Rating", new { item.WineId }, null)
 
-                </td>
-            </tr>
-            }
+            </td>
+        </tr>
+    }
 
-        </table>
+</table>
+
+<hr />
+
+<div>
+    @Html.ActionLink("Back to Tasting List", "Index", "Tasting")
+</div>
+
