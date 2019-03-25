@@ -30,7 +30,7 @@ namespace WineTasting.WebMVC.Controllers
             var wine = wineSvc.GetWineById(wineId);
 
             var ratingSvc = CreateRatingService();
-           
+
             var model = new RatingCreate
             {
                 WineId = wineId,
@@ -49,11 +49,11 @@ namespace WineTasting.WebMVC.Controllers
 
             var service = CreateRatingService();
 
-            if (service.CreateRating(model)) 
-                {
+            if (service.CreateRating(model))
+            {
                 TempData["SaveResult"] = "Your Rating was created.";
-                return RedirectToAction("Index", "Rating", new { wineId});
-                };
+                return RedirectToAction("Index", "Rating", new { wineId });
+            };
 
             ModelState.AddModelError("", "Rating could not be created.");
 
@@ -90,7 +90,7 @@ namespace WineTasting.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if(model.RatingId != id)
+            if (model.RatingId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -143,6 +143,6 @@ namespace WineTasting.WebMVC.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new WineService(userId);
             return service;
-        }               
+        }
     }
 }

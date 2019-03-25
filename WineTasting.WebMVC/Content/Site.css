@@ -43,6 +43,11 @@ textarea {
     border-color:rosybrown
 }
 
+a.my-actionclass
+{
+    color: white;
+}
+
 .jmessage {
     border:3px; 
     border-style:solid; 
@@ -78,3 +83,21 @@ textarea {
     bottom:1rem;
 }
 
+.learnMoreImage {
+    background-image: url('../../Content/Assets/Vine.jpg');
+}
+
+table {
+    background-color: rgba(255, 255, 255, .6);
+}
+
+.mybackgroundcolor 
+{
+    background-color: thistle;
+}
+
+.required:after {
+    content: "*";
+    font-weight: bold;
+    color: red;
+}
