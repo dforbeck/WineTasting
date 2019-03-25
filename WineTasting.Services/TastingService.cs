@@ -83,8 +83,10 @@ namespace WineTasting.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Tastings
-                            .Single(e => e.TastingId == tastingId && e.OwnerId == _userId);
+                var entity = 
+                    ctx
+                    .Tastings
+                    .Single(e => e.TastingId == tastingId && e.OwnerId == _userId);
 
                 return new TastingDetail
                 {

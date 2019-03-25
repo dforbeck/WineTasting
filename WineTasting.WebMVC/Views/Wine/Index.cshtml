@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<WineTasting.Models.Wine.WineListItem>
 
 @{
-    ViewBag.Title = "Wine List";
+    ViewBag.Title = "Index";
 }
 
-<h2>For the following Tasting: </h2>
+<h2>Wine List</h2>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -86,7 +86,7 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.WineId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.WineId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.WineId })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.WineId})|
                 @Html.ActionLink("Rate", "Create", "Rating", new { item.WineId }, null)
 
             </td>

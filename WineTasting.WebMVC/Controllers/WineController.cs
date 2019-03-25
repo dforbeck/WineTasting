@@ -23,38 +23,26 @@ namespace WineTasting.WebMVC.Controllers
             var wines = wineSvc.GetWinesByTastingId(tasting);
 
             return View(wines);
-        } 
-        /*
-        public ActionResult RedirectToTastingfromRatingIndex (int tastingId)
-        {
-            var tastingSvc = CreateTastingService();
-            var tasting = tastingSvc.GetTastingById(tastingId);
-
-            var wineSvc = CreateWineService();
-            var wines = wineSvc.GetWineDetailByTastingId(tastingId);
-
-            return View(wines);
         }
-        */
+
         public ActionResult Create(int tastingId)
         {
             var tastingSvc = CreateTastingService();
             var tasting = tastingSvc.GetTastingById(tastingId);
 
             var wineSvc = CreateWineService();
-            
-            var model = new WineCreate 
+
+            var model = new WineCreate
             {
                 TastingId = tastingId,
                 TastingDate = tasting.TastingDate
             };
 
             /*   ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate"); */
-        
+
             return View(model);
         }
 
-     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(WineCreate model, int tastingId)
@@ -66,15 +54,15 @@ namespace WineTasting.WebMVC.Controllers
             if (service.CreateWine(model))
             {
                 TempData["SaveResult"] = "Your Wine was created.";
-                return RedirectToAction("Index","Wine", new { tastingId });
+                return RedirectToAction("Index", "Wine", new { tastingId });
             };
 
             ModelState.AddModelError("", "Wine could not be created.");
 
-            return View(model);          
+            return View(model);
         }
 
-        public ActionResult Details (int id)
+        public ActionResult Details(int id)
         {
             var svc = CreateWineService();
             var model = svc.GetWineById(id);
@@ -106,8 +94,8 @@ namespace WineTasting.WebMVC.Controllers
         public ActionResult Edit(int id, WineEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-            
-            if(model.WineId != id)
+
+            if (model.WineId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -118,7 +106,7 @@ namespace WineTasting.WebMVC.Controllers
             if (service.UpdateWine(model))
             {
                 TempData["SaveResult"] = "Your Wine was updated.";
-                    return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Your Wine could not be updated.");
@@ -141,11 +129,19 @@ namespace WineTasting.WebMVC.Controllers
         {
             var service = CreateWineService();
 
+            var desiredId = GetTastingIdByWineId(id);
             service.DeleteWine(id);
 
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your Wine was deleted";
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { tastingId = desiredId });
+        }
+
+        private int GetTastingIdByWineId(int wineId)
+        {
+            var svc = CreateWineService();
+            var tastingId = svc.GetWineById(wineId).TastingId;
+            return tastingId;
         }
 
         private WineService CreateWineService()
