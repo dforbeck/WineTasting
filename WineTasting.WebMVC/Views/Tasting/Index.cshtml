@@ -4,66 +4,75 @@
     @{
         ViewBag.Title = "Index";
     }
-
-    <h2 style="background-color: rgba(255, 255, 255, .6)"><b>Wine Tastings on the Calendar:</b></h2>
     <hr />
-    <h3 style="background-color: rgba(255, 255, 255, .6)">
-        <b>Hosts: Create a Tasting!<br /><br />Guests: Pick a Wine List!</b>
-    </h3>
-    <p>
-        @Html.ActionLink("Create New", "Create", null, new { @class = "my-actionclass" }))
-    </p>
+    <div style="background-color: rgba(255, 255, 255, .6)">
+        <hr />
+        <h2><b>Wine Tastings on the Calendar:</b></h2>
+        <hr />
+        <h3>
+            <b>
+                Hosts: Create a Tasting!
+                @Html.ActionLink("Create New", "Create")
+            </b>
+        </h3>
+        <hr />
+        <h3>
+            <b>
+                Guests: Select a Tasting Wine List to Rate!
+            </b>
+        </h3>
 
-    @*Successful creation message*@
-    @if (TempData.ContainsKey("SaveResult"))
-    {
-        <div class="alert alert-success fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert">
-                <span>&times;</span>
-            </button>
-            @TempData["SaveResult"]
-        </div>
-    }
-
-    <table class="table table-hover">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TastingDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Host)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
+        @*Successful creation message*@
+        @if (TempData.ContainsKey("SaveResult"))
         {
-            <tr>
-                @Html.HiddenFor(modelItem => item.TastingId)
-                <td>
-                    @Html.DisplayFor(modelItem => item.TastingDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Host)
-                </td>
-
-                <td>
-
-                    @Html.ActionLink("Edit", "Edit", new { id = item.TastingId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.TastingId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.TastingId }) |
-                    @Html.ActionLink("Add Wine", "Create", "Wine", new { item.TastingId }, null) |
-                    @Html.ActionLink("Wine List", "Index", "Wine", new { item.TastingId }, null)
-                </td>
-            </tr>
+            <div class="alert alert-success fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                @TempData["SaveResult"]
+            </div>
         }
 
-    </table>
-    <hr />
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TastingDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Host)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @Html.HiddenFor(modelItem => item.TastingId)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TastingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Host)
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("Edit", "Edit", new { id = item.TastingId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.TastingId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.TastingId }) |
+                        @Html.ActionLink("Add Wine", "Create", "Wine", new { item.TastingId }, null) |
+                        @Html.ActionLink("Wine List", "Index", "Wine", new { item.TastingId }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <hr />
+    </div>
 </body>

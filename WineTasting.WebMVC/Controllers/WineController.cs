@@ -102,10 +102,12 @@ namespace WineTasting.WebMVC.Controllers
             }
 
             var service = CreateWineService();
+           // var desiredId = GetTastingIdByWineId(id);
 
             if (service.UpdateWine(model))
             {
                 TempData["SaveResult"] = "Your Wine was updated.";
+               // return RedirectToAction("Index", new { tastingId = desiredId });
                 return RedirectToAction("Index");
             }
 
