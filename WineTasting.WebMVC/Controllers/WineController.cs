@@ -37,9 +37,6 @@ namespace WineTasting.WebMVC.Controllers
                 TastingId = tastingId,
                 TastingDate = tasting.TastingDate
             };
-
-            /*   ViewBag.TastingId = new SelectList(tastingSvc.GetWinesByTastingId(tastingId), "TastingId", "TastingDate"); */
-
             return View(model);
         }
 
@@ -91,26 +88,23 @@ namespace WineTasting.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, WineEdit model, int tastingId)  //id is right here, but not the model
+        public ActionResult Edit(int id, WineEdit model, int tastingId) 
         {
-            if (!ModelState.IsValid)  //this returns as true
+            if (!ModelState.IsValid) 
             
-                return View(model); 
-            
+                return View(model);             
 
-            if (model.WineId != id) //therefore, I get this message
+            if (model.WineId != id) 
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
             var service = CreateWineService();
-           // var desiredId = GetTastingIdByWineId(id);
 
             if (service.UpdateWine(model))
             {
-                TempData["SaveResult"] = "Your Wine was updated.";
-               // return RedirectToAction("Index", new { tastingId = desiredId });
+                TempData["SaveResult"] = "Your Wine was updated.";             
                 return RedirectToAction("Index","Wine", new { tastingId });
             }
 

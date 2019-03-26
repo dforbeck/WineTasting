@@ -86,7 +86,7 @@ namespace WineTasting.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, RatingEdit model)
+        public ActionResult Edit(int id, RatingEdit model, int wineId)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -101,7 +101,7 @@ namespace WineTasting.WebMVC.Controllers
             if (service.UpdateRating(model))
             {
                 TempData["SaveResult"] = "Your Rating was updated.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Rating", new { wineId });
             }
 
             ModelState.AddModelError("", "Your Rating could not be updated.");
@@ -124,13 +124,20 @@ namespace WineTasting.WebMVC.Controllers
         {
             var service = CreateRatingService();
 
+            var desiredId = GetWineIdByRatingId(id);
             service.DeleteRating(id);
 
             TempData["SaveResult"] = "Your Rating was deleted";
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { wineId = desiredId });
         }
 
+        private int GetWineIdByRatingId(int ratingId)
+        {
+            var svc = CreateRatingService();
+            var wineId = svc.GetRatingById(ratingId).WineId;
+            return wineId;
+        }
         private RatingService CreateRatingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

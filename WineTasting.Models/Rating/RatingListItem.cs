@@ -22,7 +22,12 @@ namespace WineTasting.Models.Rating
 
         public string Comments { get; set; }
 
+        [Display(Name = "Created Date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified Date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
