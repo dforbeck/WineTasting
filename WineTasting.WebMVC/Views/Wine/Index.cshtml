@@ -86,8 +86,10 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.WineId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.WineId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.WineId})|
-                @Html.ActionLink("Rate", "Create", "Rating", new { item.WineId }, null)
+                @Html.ActionLink("Delete", "Delete", new { id = item.WineId })|
+                @Html.ActionLink("Rate", "Create", "Rating", new { item.WineId }, null) |
+                @Html.ActionLink("See My Rating", "Index", "Rating", new { item.WineId }, null)
+
 
             </td>
         </tr>
@@ -98,7 +100,6 @@
 <hr />
 
 <div>
-     @Html.ActionLink("Back to Tasting List", "Index", "Tasting") 
-   @* @Html.ActionLink("Back to Wine List", "Index", "Wine", new) *@
+     @Html.ActionLink("Back to Tasting List", "Index", "Tasting")
 </div>
 

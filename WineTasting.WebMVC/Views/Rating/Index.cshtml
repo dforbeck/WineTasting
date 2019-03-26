@@ -28,13 +28,14 @@
         <th>
             @Html.DisplayNameFor(model => model.Comments)
         </th>
+ @*       Need to add to models/service/controller.  They are in Data.
         <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ModifiedUtc)
         </th>
-        <th></th>
+     *@
     </tr>
 
     @foreach (var item in Model)
@@ -49,12 +50,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Comments)
             </td>
+@*          Need to add to models/service/controller.  They are in data.
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ModifiedUtc)
             </td>
+*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.RatingId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.RatingId }) |
