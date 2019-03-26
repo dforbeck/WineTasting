@@ -16,7 +16,7 @@
     </div>
 }
 
-<h3> Wine List </h3>
+<h3> For our wine tasting... </h3>
 <table class="table table-hover">
     <tr>
         <th>
@@ -84,7 +84,7 @@
             </td>
 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { item.WineId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.WineId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.WineId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.WineId})|
                 @Html.ActionLink("Rate", "Create", "Rating", new { item.WineId }, null)

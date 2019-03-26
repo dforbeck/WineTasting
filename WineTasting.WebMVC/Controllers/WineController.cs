@@ -70,11 +70,11 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id)  //id is correct here
         {
-            var service = CreateWineService();
-            var detail = service.GetWineById(id);
-            var model = new WineEdit
+            var service = CreateWineService();  //service is null
+            var detail = service.GetWineById(id); //id is correct here
+            var model = new WineEdit //here all the id's are 0
             {
                 OwnerId = detail.OwnerId,
                 WineId = detail.WineId,
@@ -86,16 +86,19 @@ namespace WineTasting.WebMVC.Controllers
                 Year = detail.Year,
                 CodeForBlindTasting = detail.CodeForBlindTasting
             };
-            return View(model);
+            return View(model); //here all the id's are 0
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, WineEdit model)
+        public ActionResult Edit(int id, WineEdit model, int tastingId)  //id is right here, but not the model
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid)  //this returns as true
+            
+                return View(model); 
+            
 
-            if (model.WineId != id)
+            if (model.WineId != id) //therefore, I get this message
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -108,7 +111,7 @@ namespace WineTasting.WebMVC.Controllers
             {
                 TempData["SaveResult"] = "Your Wine was updated.";
                // return RedirectToAction("Index", new { tastingId = desiredId });
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Wine", new { tastingId });
             }
 
             ModelState.AddModelError("", "Your Wine could not be updated.");
