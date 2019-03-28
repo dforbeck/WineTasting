@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineTasting.Services", "Win
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineTasting.Tests", "WineTasting.Tests\WineTasting.Tests.csproj", "{17CD732B-E81E-4C99-AE5E-F4D59A86D90A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineTasting.WebApi", "WineTasting.WebApi\WineTasting.WebApi.csproj", "{0D0789F4-3DED-417B-B49F-E9A8C6727340}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{17CD732B-E81E-4C99-AE5E-F4D59A86D90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17CD732B-E81E-4C99-AE5E-F4D59A86D90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17CD732B-E81E-4C99-AE5E-F4D59A86D90A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D0789F4-3DED-417B-B49F-E9A8C6727340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D0789F4-3DED-417B-B49F-E9A8C6727340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D0789F4-3DED-417B-B49F-E9A8C6727340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D0789F4-3DED-417B-B49F-E9A8C6727340}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
