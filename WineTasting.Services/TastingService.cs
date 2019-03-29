@@ -110,7 +110,7 @@ namespace WineTasting.Services
                 var entity = ctx.Tastings
                     .Single(e => e.TastingId == model.TastingId && e.OwnerId == _userId);
 
-                entity.OwnerId = model.OwnerId;
+                entity.OwnerId = _userId ;
                 entity.TastingId = model.TastingId;
                 entity.TastingDate = model.TastingDate;
                 entity.Title = model.Title;

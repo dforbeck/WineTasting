@@ -11,7 +11,7 @@ namespace WineTasting.Models.Tasting
     public class TastingEdit
     {
         public int TastingId { get; set; }
-        public Guid OwnerId { get; set; }
+        //public Guid OwnerId { get; set; }
 
         [Display(Name = "Tasting Date")]
         [DataType(DataType.Date)]

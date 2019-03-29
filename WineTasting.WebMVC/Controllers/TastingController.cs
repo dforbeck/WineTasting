@@ -61,7 +61,7 @@ namespace WineTasting.WebMVC.Controllers
             var detail = service.GetTastingById(id);
             var model = new TastingEdit
             {
-                OwnerId = detail.OwnerId,
+                //OwnerId = detail.OwnerId,
                 TastingId = detail.TastingId,
                 TastingDate = detail.TastingDate,
                 Title = detail.Title,
