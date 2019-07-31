@@ -13,13 +13,17 @@ namespace WineTasting.Data
         public int RatingId { get; set; }
         public Guid OwnerId { get; set; }
         public int WineId { get; set; } //foreign key
+        public int TastingID { get; set; } // foreign key
 
+        [Required]
         public double GuestRating { get; set; }
         public string Comments { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        public virtual Wine Wine { get; set; } //virtual references
+        public virtual Wine Wine { get; set; } //virtual reference to the specified wine
+        public virtual Tasting Tasting { get; set; }
+
     }
 }

@@ -10,20 +10,17 @@ namespace WineTasting.Models.Tasting
 {
     public class TastingDetail
     {
-        public int TastingId { get; set; }
-        public Guid OwnerId { get; set; }
-
         [Display(Name = "Tasting Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset TastingDate { get; set; }
 
         [Display(Name = "Event Title")]
         public string Title { get; set; }
-        
+
+        [Display(Name = "Host Name")]
         public string Host { get; set; }
 
-        public DateTimeOffset CreatedUtc
-        { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }
 
