@@ -30,7 +30,7 @@ namespace WineTasting.Services
                 WineVarietal = model.WineVarietal,
                 Region = model.Region,
                 Year = model.Year,
-                CodeForBlindTasting = model.CodeForBlindTasting,
+                CodeForTasting = model.CodeForTasting,
                 CreatedUtc = DateTimeOffset.Now
             };
             using (var ctx = new ApplicationDbContext())
@@ -58,7 +58,7 @@ namespace WineTasting.Services
                         WineVarietal = e.WineVarietal,
                         Region = e.Region,
                         Year = e.Year,
-                        CodeForBlindTasting = e.CodeForBlindTasting
+                        CodeForTasting = e.CodeForTasting
                     }
                      );
                 return query.ToArray();
@@ -84,7 +84,7 @@ namespace WineTasting.Services
                     WineVarietal = entity.WineVarietal,
                     Region = entity.Region,
                     Year = entity.Year,
-                    CodeForBlindTasting = entity.CodeForBlindTasting,
+                    CodeForTasting = entity.CodeForTasting,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc
                 };
@@ -103,7 +103,7 @@ namespace WineTasting.Services
                 entity.WineVarietal = model.WineVarietal;
                 entity.Region = model.Region;
                 entity.Year = model.Year;
-                entity.CodeForBlindTasting = model.CodeForBlindTasting;
+                entity.CodeForTasting = model.CodeForTasting;
 
                 return ctx.SaveChanges() == 1;
 

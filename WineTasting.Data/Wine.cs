@@ -33,7 +33,7 @@ namespace WineTasting.Data
         public int Year { get; set; }
 
         [Required]
-        public TastingCode TastingCode { get; set; }
+        public TastingCode CodeForTasting { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
 

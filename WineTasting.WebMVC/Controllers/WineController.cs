@@ -81,7 +81,7 @@ namespace WineTasting.WebMVC.Controllers
                 WineVarietal = detail.WineVarietal,
                 Region = detail.Region,
                 Year = detail.Year,
-                CodeForBlindTasting = detail.CodeForBlindTasting
+                CodeForTasting = detail.CodeForTasting
             };
             return View(model); //here all the id's are 0
         }

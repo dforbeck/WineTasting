@@ -34,7 +34,7 @@ namespace WineTasting.WebMVC.Controllers
             var model = new RatingCreate
             {
                 WineId = wineId,
-                CodeForBlindTasting = wine.CodeForBlindTasting
+                CodeForTasting = wine.CodeForTasting
             };
 
             return View(model);
@@ -77,7 +77,7 @@ namespace WineTasting.WebMVC.Controllers
                 OwnerId = detail.OwnerId,
                 RatingId = detail.RatingId,
                 WineId = detail.WineId,
-                CodeForBlindTasting = detail.CodeForBlindTasting,
+                CodeForTasting = detail.CodeForTasting,
                 GuestRating = detail.GuestRating,
                 Comments = detail.Comments
             };

@@ -14,7 +14,6 @@ namespace WineTasting.Models.Wine
         public Guid OwnerId { get; set; }
         public int TastingId { get; set; }
         
-        public 
         [Display(Name = "Tasting Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset TastingDate { get; set; }
