@@ -46,8 +46,8 @@ namespace WineTasting.Services
                     .Select
                     (e => new TastingListItem
                     {
-                        OwnerId = e.OwnerId,
-                        TastingId = e.TastingId,
+                      //  OwnerId = e.OwnerId,
+                       // TastingId = e.TastingId,
                         TastingDate = e.TastingDate,
                         Title = e.Title,
                         Host = e.Host,
@@ -90,8 +90,8 @@ namespace WineTasting.Services
 
                 return new TastingDetail
                 {
-                    OwnerId = entity.OwnerId,
-                    TastingId = entity.TastingId,
+                   // OwnerId = entity.OwnerId,
+                   // TastingId = entity.TastingId,
                     TastingDate = entity.TastingDate,
                     Title = entity.Title,
                     Host = entity.Host,
