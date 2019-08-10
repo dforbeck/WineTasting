@@ -55,6 +55,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\201903151857105_InitialCreate.cs" />
+    <Compile Include="Migrations\201903151857105_InitialCreate.Designer.cs">
+      <DependentUpon>201903151857105_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908102012036_fixedProperties.cs" />
+    <Compile Include="Migrations\201908102012036_fixedProperties.Designer.cs">
+      <DependentUpon>201908102012036_fixedProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Tasting.cs" />
@@ -63,6 +72,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903151857105_InitialCreate.resx">
+      <DependentUpon>201903151857105_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908102012036_fixedProperties.resx">
+      <DependentUpon>201908102012036_fixedProperties.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,8 +13,7 @@ namespace WineTasting.Data
         public int RatingId { get; set; }
         public Guid OwnerId { get; set; }
         public int WineId { get; set; } //foreign key
-        public int TastingID { get; set; } // foreign key
-
+        
         [Required]
         public double GuestRating { get; set; }
         public string Comments { get; set; }

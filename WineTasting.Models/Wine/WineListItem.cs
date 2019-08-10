@@ -12,6 +12,8 @@ namespace WineTasting.Models.Wine
     {
         public int WineId { get; set; }
         public Guid OwnerId { get; set; }
+
+        [Display(Name = "Tasting ID")]
         public int TastingId { get; set; }
 
         [Display(Name = "Tasting Date")]
