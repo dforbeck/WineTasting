@@ -67,11 +67,11 @@ namespace WineTasting.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Edit(int id)  //id is correct here
+        public ActionResult Edit(int id)  
         {
-            var service = CreateWineService();  //service is null
-            var detail = service.GetWineById(id); //id is correct here
-            var model = new WineEdit //here all the id's are 0
+            var service = CreateWineService();  
+            var detail = service.GetWineById(id); 
+            var model = new WineEdit 
             {
                 OwnerId = detail.OwnerId,
                 WineId = detail.WineId,
@@ -83,7 +83,7 @@ namespace WineTasting.WebMVC.Controllers
                 Year = detail.Year,
                 CodeForTasting = detail.CodeForTasting
             };
-            return View(model); //here all the id's are 0
+            return View(model);
         }
 
         [HttpPost]

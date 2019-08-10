@@ -50,6 +50,7 @@ namespace WineTasting.Services
                     .Where(e => e.TastingId == tasting.TastingId)
                     .Select(e => new WineListItem
                     {
+                        OwnerId = e.OwnerId,
                         WineId = e.WineId,
                         TastingId = e.TastingId,
                         TastingDate = tasting.TastingDate,

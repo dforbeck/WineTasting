@@ -9,9 +9,9 @@ using WineTasting.Data;
 namespace WineTasting.Models.Wine
 {
     public class WineEdit
-    {
-        public Guid OwnerId { get; set; }
+    {  
         public int WineId { get; set; }
+        public Guid OwnerId { get; set; }
         public int TastingId { get; set; }
 
         public string Brand { get; set; }

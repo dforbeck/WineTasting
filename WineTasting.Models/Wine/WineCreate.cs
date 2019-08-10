@@ -10,8 +10,8 @@ namespace WineTasting.Models.Wine
 {
     public class WineCreate
     {
-        public Guid OwnerId { get; set; }
         public int WineId { get; set; }
+        public Guid OwnerId { get; set; }
         public int TastingId { get; set; }
 
         [Display(Name = "Tasting Date")]
@@ -31,6 +31,7 @@ namespace WineTasting.Models.Wine
         public string Region { get; set; }
 
         [Required]
+        [Range(1800, 3000, ErrorMessage = "Must select from 1800-3000")]
         public int Year { get; set; }
 
         [Required]
