@@ -14,7 +14,6 @@ namespace WineTasting.Data
         public Guid OwnerId { get; set; }
 
         [Required]
-        //public DateTime TastingDate { get; set; }
         public DateTimeOffset TastingDate { get; set; }
 
         [Required]
@@ -23,8 +22,6 @@ namespace WineTasting.Data
         [Required]
         public string Host {get; set;}
 
- 
-        [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }

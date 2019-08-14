@@ -20,6 +20,7 @@ namespace WineTasting.Models.Tasting
         [Display(Name = "Event Title")]
         public string Title { get; set; }
 
+        [Display(Name = "Host Name")]
         public string Host { get; set; }
     }
 }

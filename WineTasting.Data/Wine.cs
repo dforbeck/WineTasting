@@ -9,7 +9,7 @@ namespace WineTasting.Data
 {
     public enum WineType {[Display(Name = "Cabernet Sauvignon")] CabernetSauvignon, Zinfandel, Merlot, [Display(Name = "Pinot Noir")] PinotNoir, Malbec, Syrah}
 
-    public enum BlindTastingCode {A,B,C,D,E,F,G,H,I,J,K,L,M}
+    public enum TastingCode {A,B,C,D,E,F,G,H,I,J,K,L,M}
 
     public class Wine
     {
@@ -24,7 +24,6 @@ namespace WineTasting.Data
         public string SubBrand { get; set; }
 
         [Required]
-        [Display(Name = "Wine Varietal")]
         public WineType WineVarietal { get; set; }
 
         [Required]
@@ -33,18 +32,16 @@ namespace WineTasting.Data
         [Required]
         public int Year { get; set; }
 
-        [Display(Name = "Blind Tasting Code")]
-        public BlindTastingCode CodeForBlindTasting { get; set; }
-
         [Required]
-        public DateTimeOffset CreatedUtc
-        { get; set; }
+        public TastingCode CodeForTasting { get; set; }
+
+        public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        public double OverallRating { get; set; }
+        public virtual Tasting Tasting { get; set; } //virtual references to the tasting it belongs to
 
-        public virtual Tasting Tasting { get; set; } //virtual references
+        public double OverallRating { get; set; } //Overall Rating for a wine at a specific tasting
     }
 
 }

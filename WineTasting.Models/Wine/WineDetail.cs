@@ -27,8 +27,8 @@ namespace WineTasting.Models.Wine
         public string Region { get; set; }
         public int Year { get; set; }
 
-        [Display(Name = "Blind Tasting Code")]
-        public BlindTastingCode CodeForBlindTasting { get; set; }
+        [Display(Name = "Tasting Code")]
+        public TastingCode CodeForTasting { get; set; }
 
         public DateTimeOffset CreatedUtc
         { get; set; }

@@ -15,7 +15,7 @@ namespace WineTasting.Models.Rating
         public int WineId { get; set; }
 
         [Display(Name = "Blind Tasting Code")]
-        public BlindTastingCode CodeForBlindTasting { get; set; }
+        public TastingCode CodeForTasting { get; set; }
 
         public double GuestRating { get; set; }
 

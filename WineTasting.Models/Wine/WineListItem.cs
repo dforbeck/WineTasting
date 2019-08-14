@@ -12,6 +12,8 @@ namespace WineTasting.Models.Wine
     {
         public int WineId { get; set; }
         public Guid OwnerId { get; set; }
+
+        [Display(Name = "Tasting ID")]
         public int TastingId { get; set; }
 
         [Display(Name = "Tasting Date")]
@@ -27,7 +29,7 @@ namespace WineTasting.Models.Wine
         public string Region { get; set; }
         public int Year { get; set; }
 
-        [Display(Name = "Blind Tasting Code")]
-        public BlindTastingCode CodeForBlindTasting { get; set; }
+        [Display(Name = "Tasting Code")]
+        public TastingCode CodeForTasting { get; set; }
     }
 }

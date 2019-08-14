@@ -50,7 +50,7 @@ namespace WineTasting.Services
                         OwnerId = e.OwnerId,
                         RatingId = e.RatingId,
                         WineId = e.WineId,
-                        CodeForBlindTasting = wine.CodeForBlindTasting,
+                        CodeForTasting = wine.CodeForTasting,
                         GuestRating = e.GuestRating,
                         Comments = e.Comments
                     }
@@ -74,7 +74,7 @@ namespace WineTasting.Services
                         RatingId = entity.RatingId,
                         WineId = entity.WineId,
                         GuestRating = entity.GuestRating,
-                        CodeForBlindTasting = entity.Wine.CodeForBlindTasting,
+                        CodeForTasting = entity.Wine.CodeForTasting,
                         Comments = entity.Comments,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc

@@ -9,55 +9,57 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>RatingCreate</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.OwnerId)
-        @Html.HiddenFor(model => model.RatingId)
+<div class="form-horizontal">
+    <h4>RatingCreate</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.OwnerId)
+    @Html.HiddenFor(model => model.RatingId)
+    @Html.HiddenFor(model => model.WineId)
 
-        <h3> For the following Wine:</h3>
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.WineId)
-            </dt>
+    <h3> For the following Wine:</h3>
+    <dl class="dl-horizontal">
 
-            <dd>
-                @Html.DisplayFor(model => model.WineId)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeForTasting)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.CodeForBlindTasting)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CodeForTasting)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.CodeForBlindTasting)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeForTasting)
+        </dt>
 
-        </dl>
+        <dd>
+            @Html.DisplayFor(model => model.CodeForTasting)
+        </dd>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.GuestRating, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GuestRating, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GuestRating, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    </dl>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.GuestRating, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GuestRating, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GuestRating, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
     <div>

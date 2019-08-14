@@ -10,6 +10,7 @@ namespace WineTasting.Models.Tasting
 {
     public class TastingDetail
     {
+        [Display(Name = "Tasting ID")]
         public int TastingId { get; set; }
         public Guid OwnerId { get; set; }
 
@@ -19,12 +20,14 @@ namespace WineTasting.Models.Tasting
 
         [Display(Name = "Event Title")]
         public string Title { get; set; }
-        
+
+        [Display(Name = "Host Name")]
         public string Host { get; set; }
 
-        public DateTimeOffset CreatedUtc
-        { get; set; }
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
 
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
     }

@@ -10,11 +10,12 @@ namespace WineTasting.Models.Tasting
 {
     public class TastingCreate
     {
-        //public int TastingId { get; set; }
-        //public Guid OwnerId { get; set; }
+        public int TastingId { get; set; }
+        public Guid OwnerId { get; set; }
 
         [Required]
         [Display(Name = "Tasting Date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [DataType(DataType.Date)]
         public DateTimeOffset TastingDate { get; set; }
 
@@ -23,6 +24,7 @@ namespace WineTasting.Models.Tasting
         public string Title { get; set; }
 
         [Required]
+        [Display(Name = "Host Name")]
         public string Host { get; set; }
     }
 }

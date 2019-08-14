@@ -10,14 +10,15 @@ namespace WineTasting.Models.Wine
 {
     public class WineCreate
     {
-        public Guid OwnerId { get; set; }
         public int WineId { get; set; }
+        public Guid OwnerId { get; set; }
         public int TastingId { get; set; }
 
         [Display(Name = "Tasting Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset TastingDate { get; set; }
 
+        [Required]
         public string Brand { get; set; }
 
         public string SubBrand { get; set; }
@@ -30,10 +31,11 @@ namespace WineTasting.Models.Wine
         public string Region { get; set; }
 
         [Required]
+        [Range(1800, 3000, ErrorMessage = "Must select from 1800-3000")]
         public int Year { get; set; }
 
         [Required]
-        [Display(Name = "Blind Tasting Code")]
-        public BlindTastingCode CodeForBlindTasting { get; set; }
+        [Display(Name = "Tasting Code")]
+        public TastingCode CodeForTasting { get; set; }
     }
 }

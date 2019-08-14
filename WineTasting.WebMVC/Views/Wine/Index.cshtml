@@ -15,10 +15,12 @@
         @TempData["SaveResult"]
     </div>
 }
-
 <h3> For our wine tasting... </h3>
+
 <table class="table table-hover">
+
     <tr>
+
         <th>
             @Html.DisplayNameFor(model => model.TastingId)
         </th>
@@ -46,7 +48,7 @@
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.CodeForBlindTasting)
+            @Html.DisplayNameFor(model => model.CodeForTasting)
         </th>
 
         <th></th>
@@ -80,7 +82,7 @@
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => item.CodeForBlindTasting)
+                @Html.DisplayFor(modelItem => item.CodeForTasting)
             </td>
 
             <td>
@@ -100,6 +102,6 @@
 <hr />
 
 <div>
-     @Html.ActionLink("Back to Tasting List", "Index", "Tasting")
+    @Html.ActionLink("Back to Tasting List", "Index", "Tasting")
 </div>
 

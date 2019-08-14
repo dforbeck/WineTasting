@@ -22,7 +22,7 @@ namespace WineTasting.Services
             var entity = new Tasting()
             {
                 OwnerId = _userId,
-                //TastingId= model.TastingId,
+                TastingId= model.TastingId,
                 TastingDate = model.TastingDate,
                 Title = model.Title,
                 Host = model.Host,
@@ -115,7 +115,7 @@ namespace WineTasting.Services
                 entity.TastingDate = model.TastingDate;
                 entity.Title = model.Title;
                 entity.Host = model.Host;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.ModifiedUtc = DateTimeOffset.Now;
 
                 return ctx.SaveChanges() == 1;
             }        

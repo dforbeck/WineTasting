@@ -15,11 +15,13 @@ namespace WineTasting.Models.Tasting
 
         [Display(Name = "Tasting Date")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset TastingDate { get; set; }
 
         [Display(Name = "Event Title")]
         public string Title { get; set; }
 
+        [Display(Name = "Host Name")]
         public string Host { get; set; }
     }
 }
