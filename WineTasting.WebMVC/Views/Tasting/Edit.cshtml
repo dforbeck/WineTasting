@@ -17,8 +17,6 @@
     @Html.HiddenFor(model => model.TastingId)
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.TastingId)
-
     <div class="form-group">
         @Html.LabelFor(model => model.TastingDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
