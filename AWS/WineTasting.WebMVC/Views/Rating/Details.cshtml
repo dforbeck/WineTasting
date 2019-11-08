@@ -1,0 +1,62 @@
+﻿@model WineTasting.Models.Rating.RatingDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RatingDetail</h4>
+    <hr />
+    @Html.HiddenFor(model => model.OwnerId)
+    @Html.HiddenFor(model => model.RatingId)
+    @Html.HiddenFor(model => model.WineId)
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeForTasting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeForTasting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RatingId }) |
+    @Html.ActionLink("See My Ratings", "Index", "Rating", new { Model.WineId }, null)
+</p>

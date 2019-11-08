@@ -1,0 +1,80 @@
+﻿@model WineTasting.Models.Wine.WineDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>WineDetail</h4>
+    <hr />
+    @Html.HiddenFor(model => model.OwnerId)
+    @Html.HiddenFor(model => model.WineId)
+    @Html.HiddenFor(model => model.TastingId)
+
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WineVarietal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WineVarietal)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeForTasting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeForTasting)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to My Tasting Wine List", null, null, null, new { href = Request.UrlReferrer })
+    </div>
+    }
+</div>

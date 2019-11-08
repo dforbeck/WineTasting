@@ -1,0 +1,67 @@
+﻿@model WineTasting.Models.Tasting.TastingDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TastingDetail</h4>
+    @Html.HiddenFor(model => model.OwnerId)
+    @Html.HiddenFor(model => model.TastingId)
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TastingId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TastingId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TastingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TastingDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Host)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Host)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TastingId }) |
+    @Html.ActionLink("Back to Tasting List", "Index")
+</p>

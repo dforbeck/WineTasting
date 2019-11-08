@@ -1,0 +1,69 @@
+﻿@model WineTasting.Models.Rating.RatingDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RatingDetail</h4>
+    <hr />
+    @Html.HiddenFor(model => model.OwnerId)
+    @Html.HiddenFor(model => model.RatingId)
+    @Html.HiddenFor(model => model.WineId)
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeForTasting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeForTasting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("See My Ratings", "Index", "Rating")
+    </div>
+    }
+</div>

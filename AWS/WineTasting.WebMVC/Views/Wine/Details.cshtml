@@ -1,0 +1,71 @@
+﻿@model WineTasting.Models.Wine.WineDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WineDetail</h4>
+    @Html.HiddenFor(model => model.OwnerId)
+    @Html.HiddenFor(model => model.WineId)
+    @Html.HiddenFor(model => model.TastingId)
+    <hr />
+
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WineVarietal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WineVarietal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeForTasting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeForTasting)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WineId }) |
+    @Html.ActionLink("Back to My Tasting Wine List", null, null, null, new { href = Request.UrlReferrer })
+</p>

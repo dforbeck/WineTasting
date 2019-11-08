@@ -1,0 +1,73 @@
+﻿
+@model IEnumerable<WineTasting.Models.Rating.RatingListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My Wine Rating</h2>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        @ViewBag.SaveResult
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeForTasting)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GuestRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+ @*       Need to add to models/service/controller.  They are in Data.
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </th>
+     *@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeForTasting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuestRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+@*          Need to add to models/service/controller.  They are in data.
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedUtc)
+            </td>
+*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RatingId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RatingId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RatingId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href='javascript:history.go(-2)'>Go Back to Wine List</a>
+
+

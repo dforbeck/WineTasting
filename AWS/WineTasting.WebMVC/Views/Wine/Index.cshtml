@@ -1,0 +1,107 @@
+﻿@model IEnumerable<WineTasting.Models.Wine.WineListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Wine List</h2>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<h3> For our wine tasting... </h3>
+
+<table class="table table-hover">
+
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TastingId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TastingDate)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubBrand)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.WineVarietal)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Region)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CodeForTasting)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.TastingId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TastingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubBrand)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.WineVarietal)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeForTasting)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.WineId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.WineId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.WineId })|
+                @Html.ActionLink("Rate", "Create", "Rating", new { item.WineId }, null) |
+                @Html.ActionLink("See My Rating", "Index", "Rating", new { item.WineId }, null)
+
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<hr />
+
+<div>
+    @Html.ActionLink("Back to Tasting List", "Index", "Tasting")
+</div>
+
