@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WineTasting.WebMVC.Models
 {
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
@@ -64,6 +65,11 @@ namespace WineTasting.WebMVC.Models
 
     public class RegisterViewModel
     {
+        //ADDED THE BELOW FOR USER ROLES
+        [Required]
+        [Display(Name = "User Role")]
+        public string UserRole { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

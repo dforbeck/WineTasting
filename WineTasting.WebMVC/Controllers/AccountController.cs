@@ -162,11 +162,23 @@ namespace WineTasting.WebMVC.Controllers
                     var roleManager = new RoleManager<IdentityRole>(roleStore);
 
                     //CREATE ADMIN ROLE
+
                     if (!await roleManager.RoleExistsAsync("Admin"))
                         await roleManager.CreateAsync(new IdentityRole("Admin"));
-                    await UserManager.AddToRoleAsync(user.Id, "Admin");
+                        await UserManager.AddToRoleAsync(user.Id, "Admin");
 
-                    
+                    //CREATE HOST ROLE
+
+                    if (!await roleManager.RoleExistsAsync("Host"))
+                        await roleManager.CreateAsync(new IdentityRole("Host"));
+                        await UserManager.AddToRoleAsync(user.Id, "Host");
+
+                    //CREATE GUEST ROLE
+
+                    if (!await roleManager.RoleExistsAsync("Guest"))
+                        await roleManager.CreateAsync(new IdentityRole("Guest"));
+                    await UserManager.AddToRoleAsync(user.Id, "Guest");
+
 
                     //THIS STAYS FOR USER ROLES
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
