@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -17,12 +18,20 @@ namespace WineTasting.WebMVC.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
-
+        // CREATE OBJECT FOR USER ROLES
+        ApplicationDbContext newDbContext;
         public AccountController()
         {
+            newDbContext = new ApplicationDbContext();
         }
+
+        // COMMENT OUT BECAUSE OF ABOVE
+        //public AccountController()
+        //{
+        //}
+
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
@@ -138,9 +147,12 @@ namespace WineTasting.WebMVC.Controllers
 
         //
         // GET: /Account/Register
+
+        // USE OBJECT AND GET all the roles from database
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Name = new SelectList(newDbContext.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
             return View();
         }
 
@@ -157,6 +169,7 @@ namespace WineTasting.WebMVC.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
                     //BELOW IS NEW FOR STATING USER ROLES                  
                     var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
                     var roleManager = new RoleManager<IdentityRole>(roleStore);
